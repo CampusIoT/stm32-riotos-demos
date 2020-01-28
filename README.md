@@ -1,4 +1,4 @@
-# Stm32 RIOT OS Demos
+# STM32 RIOT OS Demos
 Demos of RIOT OS on STM32 Nucleo and Discovery boards and shields
 
 
