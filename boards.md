@@ -14,6 +14,7 @@ Available in fabMSTIC
 * [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html).
 * [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html)
 * [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html)
+* [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html)
 
 ## Nucleo shields
 * [X-NUCLEO-IKS01A3 - Carte d'extension, Capteur mouvement et environnent MEMS pour STM32 Nucleo, Arduino UNO Layout R3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html)
