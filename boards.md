@@ -5,7 +5,7 @@ Available in fabMSTIC
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | RIOT support | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------------ | ------------ | ---- |
-| [STEVAL-STLKT01V1 -  Kit de développement, Module SensorTile IoT, MCU STM32L476JGY, Forme carré Miniature](https://www.st.com/en/evaluation-tools/steval-stlkt01v1.html) | TBC | STM32L476JGY | BLE | TBC | TBC | TBC |
+| [STEVAL-STLKT01V1 -  Kit de développement, Module SensorTile IoT, MCU STM32L476JGY, Forme carré Miniature](https://www.st.com/en/evaluation-tools/steval-stlkt01v1.html) | TBC | [STM32L476JGY](https://www.st.com/en/microcontrollers-microprocessors/stm32l476jg.html) | BLE | TBC | TBC | TBC |
 | [STEVAL-BCN002V1B BlueTile - Bluetooth LE enabled sensor node development kit](https://www.st.com/en/evaluation-tools/steval-bcn002v1b.html) | TBC | TBC | BLE | TBC | TBC | TBC |
 | [B-L072Z-LRWAN1 -  Discovery Kit, LoRa® Low Power Wireless Module, SMA and U.FL RF Interface Connectors](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html) | TBC | STM32L072Z | LoRa, Sigfox | TBC | TBC | TBC |
 | [B-L475E-IOT01A Discovery kit for IoT node](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | TBC | STM32L475E | BLE | TBC | TBC | TBC |
