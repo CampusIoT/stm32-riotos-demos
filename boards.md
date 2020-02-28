@@ -35,14 +35,24 @@ Available in fabMSTIC
 
 ## Arduino shields (Adafruit, Sparkfun ...)
 
+| Board         | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+
 ## Breakout Qwiic
 
-* [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607)
+| Board         | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+| [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607) | 1 | TBC | AMG8833 | TBC | TBC | TBC |
 
 ## Seeed Studio Grove sensors
 
 [Manufacturer full list](https://www.seeedstudio.com/category/Sensor-for-Grove-c-24.html)
 
+| Board         | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+
 ## Misc
 
-* [LIDAR-Lite v3](https://www.sparkfun.com/products/14032)
+| Board         | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+| [LIDAR-Lite v3](https://www.sparkfun.com/products/14032) | 1 | 5V | LiDar | TBC | TBC | TBC |
