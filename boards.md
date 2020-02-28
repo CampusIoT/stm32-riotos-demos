@@ -33,3 +33,16 @@ Available in fabMSTIC
 | [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | TBC | None | [Teseo-LIV3F GNSS](https://www.st.com/en/positioning/teseo-liv3f.html) | TBC | TBC |
 | [X-NUCLEO-53L0A1](https://www.st.com/en/ecosystems/x-nucleo-53l0a1.html) | TBC | None | [VL53L0X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html) | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 
+## Arduino shields (Adafruit, Sparkfun ...)
+
+## Breakout Qwiic
+
+* [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607)
+
+## Seeed Studio Grove sensors
+
+[Manufacturer full list](https://www.seeedstudio.com/category/Sensor-for-Grove-c-24.html)
+
+## Misc
+
+* LiDAR
