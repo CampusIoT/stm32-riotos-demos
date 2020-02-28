@@ -9,6 +9,8 @@ Available in fabMSTIC
 | [STEVAL-BCN002V1B BlueTile - Bluetooth LE enabled sensor node development kit](https://www.st.com/en/evaluation-tools/steval-bcn002v1b.html) | TBC | TBC | BLE | TBC | TBC | TBC |
 | [B-L072Z-LRWAN1 -  Discovery Kit, LoRa® Low Power Wireless Module, SMA and U.FL RF Interface Connectors](https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html) | TBC | STM32L072Z | LoRa, Sigfox | TBC | [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1) | TBC |
 | [B-L475E-IOT01A Discovery kit for IoT node](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | TBC | STM32L475E | BLE, Wifi, SubGHz | MP34DT01, HTS221, LIS3MDL, LSM6DSL, LPS22HB, VL53L0X | [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l475e-iot01a) | TBC |
+| NetDuino | 1 | STM32F4 | None | Button | TBC | TBC |
+
 
 ## Nucleo boards
 
