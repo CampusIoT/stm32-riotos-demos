@@ -28,6 +28,6 @@ Available in fabMSTIC
 
 | Board         | Samples @ Fablab | Communication|  Sensors | RIOT support | Demo |
 | ------------- | ---------------- | -------------|  ------- | ------------ | ---- |
-| [X-NUCLEO-IKS01A3 - Carte d'extension, Capteur mouvement et environnent MEMS pour STM32 Nucleo, Arduino UNO Layout R3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) | TBC| TBC | TBC | TBC | TBC |
-| [I-NUCLEO-LRWAN1 -  Carte d'extension, Module USI LoRa LPWAN, Capteurs multiples pour Nucleo STM32, Compatible Arduino](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) | TBC| LoRa | TBC | TBC | TBC |
+| [X-NUCLEO-IKS01A3 - Carte d'extension, Capteur mouvement et environnent MEMS pour STM32 Nucleo, Arduino UNO Layout R3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) | None | TBC | LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751 | TBC | TBC |
+| [I-NUCLEO-LRWAN1 -  Carte d'extension, Module USI LoRa LPWAN, Capteurs multiples pour Nucleo STM32, Compatible Arduino](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) | TBC| LoRa | LSM303AGR, HTS221, LPS22HB | TBC | TBC |
 | [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | TBC | None | GNSS Teseo | TBC | TBC |
