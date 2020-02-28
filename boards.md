@@ -32,6 +32,7 @@ Available in fabMSTIC
 | [I-NUCLEO-LRWAN1 -  Carte d'extension, Module USI LoRa LPWAN, Capteurs multiples pour Nucleo STM32, Compatible Arduino](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) | TBC| LoRa | LSM303AGR, HTS221, LPS22HB | TBC | TBC |
 | [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | TBC | None | [Teseo-LIV3F GNSS](https://www.st.com/en/positioning/teseo-liv3f.html) | TBC | TBC |
 | [X-NUCLEO-53L0A1](https://www.st.com/en/ecosystems/x-nucleo-53l0a1.html) | TBC | None | [VL53L0X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html) | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
+| [X-NUCLEO-IDW01M1](https://www.st.com/en/ecosystems/x-nucleo-idw01m1.html) | ~5 | Wifi | TBC | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 
 ## Arduino shields (Adafruit, Sparkfun ...)
 
