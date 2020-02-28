@@ -45,4 +45,4 @@ Available in fabMSTIC
 
 ## Misc
 
-* LiDAR
+* [LIDAR-Lite v3](https://www.sparkfun.com/products/14032)
