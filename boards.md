@@ -14,15 +14,15 @@ Available in fabMSTIC
 
 ## Nucleo boards
 
-| Board         | Samples @ Fablab | MCU Model | Communication | Sensors | RIOT support | Demo |
-| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | ---- |
-| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | TBC | TBC |
-| [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | TBC | STM32F401RE | None | Button | TBC | TBC |
-| [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | TBC | STM32F411RE | None | Button | TBC | TBC |
-| [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | TBC | STM32F446RE | None | Button | TBC | TBC |
-| [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | TBC | STM32L152RE | None | Button | TBC | TBC |
-| [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC | TBC |
-| [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC | TBC |
+| Board         | Samples @ Fablab | MCU Model | Communication | Sensors | RIOT support | Fritzing | Demo |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
+| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | TBC | TBC | TBC |
+| [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | TBC | STM32F401RE | None | Button | TBC | TBC | TBC |
+| [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | TBC | STM32F411RE | None | Button | TBC | TBC | TBC |
+| [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | TBC | STM32F446RE | None | Button | TBC | TBC | TBC |
+| [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | TBC | STM32L152RE | None | Button | TBC | TBC | TBC |
+| [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC | TBC | TBC |
+| [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC | TBC | TBC |
 
 ## Nucleo shields
 
