@@ -53,6 +53,10 @@ Available in fabMSTIC
 | [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | 1 | STM32L152RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| NUCLEO-F030R8 | 2 | STM32F030R8 | None | Button | TBC | TBC | TBC |
+| NUCLEO-F334R8 | 1 | STM32F334R8 | None | Button | TBC | TBC | TBC |
+| NUCLEO-L432KC | 3 | STM32L432KC | None | Button | TBC | TBC | TBC |
+| NUCLEO-F103RB | 1 | STM32F103RB | None | Button | TBC | TBC | TBC |
 
 ## Nucleo 144 boards
 
