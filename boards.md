@@ -23,6 +23,7 @@ Available in fabMSTIC
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
+<<<<<<< HEAD
 
 
 ## Nucleo 64 boards
@@ -45,13 +46,13 @@ Available in fabMSTIC
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
-| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | TBC | STM32F401RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | TBC | STM32F411RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | Min 2 | [STM32F446RE](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f4-series/stm32f446/stm32f446re.html) | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | TBC | STM32L152RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | 3 | STM32F401RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | 3 | STM32F411RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | 2 | STM32F446RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | 1 | STM32L152RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 
 ## Nucleo 144 boards
 
@@ -66,25 +67,30 @@ Available in fabMSTIC
 | [NetDuino](https://www.wildernesslabs.co/Netduino) v1 | 1 | STM32F405 | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](http://fritzing.org/projects/stm32f405-board/) | TBC | 
 | [Arduino Portenta H7](https://www.st.com/en/ecosystems/arduino-portenta-h7.html) | 0 | STM32H747 dual core Cortex M7@480 MHz + Cortex M4@240MHz | None | Button | TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
 
-
-
 ## Nucleo shields
 
 | Board         | Samples @ Fablab | Communication|  Sensors | OS support | Demo |
 | ------------- | ---------------- | -------------|  ------- | ------------ | ---- |
-| [X-NUCLEO-IKS01A3 - Carte d'extension, Capteur mouvement et environnent MEMS pour STM32 Nucleo, Arduino UNO Layout R3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) | None | TBC | LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751 | TBC, MBed: TBC, Stm32duino: TBC | TBC |
-| [I-NUCLEO-LRWAN1 -  Carte d'extension, Module USI LoRa LPWAN, Capteurs multiples pour Nucleo STM32, Compatible Arduino](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) | TBC| LoRa | LSM303AGR, HTS221, LPS22HB | RiotOS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/i-nucleo-lrwan1), Stm32duino [Yes](https://github.com/stm32duino/I-NUCLEO-LRWAN1), MBed: TBD  | TBC |
-| [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | TBC | None | [Teseo-LIV3F GNSS](https://www.st.com/en/positioning/teseo-liv3f.html) | TBC, MBed: TBC, Stm32duino: TBC | TBC |
-| [X-NUCLEO-53L0A1](https://www.st.com/en/ecosystems/x-nucleo-53l0a1.html) | TBC | None | [VL53L0X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html) | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
-| [X-NUCLEO-IDW01M1](https://www.st.com/en/ecosystems/x-nucleo-idw01m1.html) | ~5 | Wifi | TBC | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
+<<<<<<< HEAD
+| [X-NUCLEO-IKS01A3 - Carte d'extension, Capteur mouvement et environnent MEMS pour STM32 Nucleo, Arduino UNO Layout R3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) | 1 | TBC | LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751 | TBC, MBed: TBC, Stm32duino: TBC | TBC |
+| [I-NUCLEO-LRWAN1 -  Carte d'extension, Module USI LoRa LPWAN, Capteurs multiples pour Nucleo STM32, Compatible Arduino](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) | 4| LoRa | LSM303AGR, HTS221, LPS22HB | RiotOS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/i-nucleo-lrwan1), Stm32duino [Yes](https://github.com/stm32duino/I-NUCLEO-LRWAN1), MBed: TBD  | TBC |
+| [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | 2 | None | [Teseo-LIV3F GNSS](https://www.st.com/en/positioning/teseo-liv3f.html) | TBC, MBed: TBC, Stm32duino: TBC | TBC |
+| [X-NUCLEO-53L0A1](https://www.st.com/en/ecosystems/x-nucleo-53l0a1.html) | 1 | None | [VL53L0X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html) | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
+| X-NUCLEO-53L1A1 | 2 | TBC | Ranging, TOF | TBC | TBC |
+| [X-NUCLEO-IDW01M1](https://www.st.com/en/ecosystems/x-nucleo-idw01m1.html) | 4 | Wifi | TBC | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 | [X-NUCLEO-AMICAM1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-sense-hw/x-nucleo-amicam1.html) | ~5 | None | Microphone | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IHM07M1](https://www.st.com/en/ecosystems/x-nucleo-ihm07m1.html) | 0 | None | Brushless Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IHM03A1](https://www.st.com/en/ecosystems/x-nucleo-ihm03a1.html) | TBC | None | High Power Stepper Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
-| [X-NUCLEO-IHM01A1](https://www.st.com/en/ecosystems/x-nucleo-ihm01a1.html) | ~5 | None | Stepper motor driver ([L6474](https://www.st.com/content/st_com/en/products/motor-drivers/stepper-motor-drivers/l6474.html)) | RiotOS: TBD, Stm32duino: TBD | TBC |
-| [X-NUCLEO-IDB04A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-idb04a1.html) | 1 | BALF-NRG-01D3 (BLE) | None | RiotOS: TBD, Stm32duino: TBD | TBC |
-| [X-NUCLEO-NFC01A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-nfc01a1.html) | ~5 | M24SR64-Y Dynamic NFC/RFID tag IC | None | RiotOS: TBD, Stm32duino: TBD | TBC |
-
-
+| [X-NUCLEO-IHM01A1](https://www.st.com/en/ecosystems/x-nucleo-ihm01a1.html) | 7 | None | Stepper motor driver ([L6474](https://www.st.com/content/st_com/en/products/motor-drivers/stepper-motor-drivers/l6474.html)) | RiotOS: TBD, Stm32duino: TBD | TBC |
+| [X-NUCLEO-IDB04A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-idb04a1.html) | 9 | BALF-NRG-01D3 (BLE) | None | RiotOS: TBD, Stm32duino: TBD | TBC |
+| [X-NUCLEO-NFC01A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-nfc01a1.html) | 2 | M24SR64-Y Dynamic NFC/RFID tag IC | None | RiotOS: TBD, Stm32duino: TBD | TBC |
+| SHIELD-M24SR-ADV | 3 | NFC | TBC | TBC | TBC |
+| STEVAL-MK1062V2 | 2 | TBC | Internial module | TBC | TBC |
+| X-NUCLEO-IKS01A1 | 2 | TBC | MEMS | TBC | TBC |
+| X-NUCLEO-IKP01A1 | 1 | TBC | Gestyre, proximity, ALS | TBC | TBC |
+| VL53L0X | 1 | TBC | TOF, Ranging | TBC | TBC |
+| SX1272MB2xAS | 1 | LoRa | TBC | TBC | TBC |
+| X-NUCLEO-CCA02M1 | 1 | None | Mic | TBC | TBC |
 
 ## Arduino shields (Adafruit, Sparkfun ...)
 
