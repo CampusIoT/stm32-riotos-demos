@@ -65,6 +65,14 @@ Available in fabMSTIC
 
 | Sensors       | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+| [Ultrasonic Ranger](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/) |  TBC | 3.3V, 5V | Ultrasonic | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [Dust Sensor](http://wiki.seeedstudio.com/Grove-Dust_Sensor/) |  TBC | 5V | Ultrasonic | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [Gas Sensor (MQ2)](http://wiki.seeedstudio.com/Grove-Gas_Sensor-MQ2/) Combustible Gas, Smoke |  TBC | 5V | MQ2 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [Gas Sensor (MQ3)](http://wiki.seeedstudio.com/Grove-Gas_Sensor-MQ3/) Alcohol Vapor |  TBC | 5V | MQ3 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [Gas Sensor (MQ5)](http://wiki.seeedstudio.com/Grove-Gas_Sensor-MQ5/) LPG, Natural Gas, Town Gas |  TBC | 5V | MQ5 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [Gas Sensor (MQ9)](http://wiki.seeedstudio.com/Grove-Gas_Sensor-MQ9/) Carbon Monoxide, Coal Gas, Liquefied Gas |  TBC | 5V | MQ9 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [Adjustable PIR Motion Sensor](http://wiki.seeedstudio.com/Grove-Adjustable_PIR_Motion_Sensor/) PIR Motion |  TBC | 5V | MQ9 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+
 
 ## Misc
 
