@@ -44,6 +44,8 @@ Available in fabMSTIC
 | [X-NUCLEO-IDW01M1](https://www.st.com/en/ecosystems/x-nucleo-idw01m1.html) | ~5 | Wifi | TBC | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 | [X-NUCLEO-AMICAM1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-sense-hw/x-nucleo-amicam1.html) | ~5 | None | Microphone | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IHM07M1](https://www.st.com/en/ecosystems/x-nucleo-ihm07m1.html) | 0 | None | Brushless Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
+| [X-NUCLEO-IHM03A1](https://www.st.com/en/ecosystems/x-nucleo-ihm03a1.html) | TBC | None | High Power Stepper Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
+
 
 
 ## Arduino shields (Adafruit, Sparkfun ...)
@@ -61,7 +63,7 @@ Available in fabMSTIC
 
 [Manufacturer full list](https://www.seeedstudio.com/category/Sensor-for-Grove-c-24.html)
 
-| Board         | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
+| Sensors       | Samples @ Fablab | Voltage   | Sensors       | Support | Fritzing     | Demo     |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
 
 ## Misc
