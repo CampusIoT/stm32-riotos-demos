@@ -73,7 +73,7 @@ Available in fabMSTIC
 | [Gas Sensor (MQ9)](http://wiki.seeedstudio.com/Grove-Gas_Sensor-MQ9/) Carbon Monoxide, Coal Gas, Liquefied Gas |  TBC | 5V | MQ9 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [Adjustable PIR Motion Sensor](http://wiki.seeedstudio.com/Grove-Adjustable_PIR_Motion_Sensor/) PIR Motion |  TBC | 3.3V, 5V | PIR | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [Infrared Temperature Sensor Array (AMG8833)](http://wiki.seeedstudio.com/Grove-Infrared_Temperature_Sensor_Array-AMG8833/) |  TBC | 3.3V | AMG8833 IR grid | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
-| [OBD-II CAN-BUS Development Kit](https://www.seeedstudio.com/OBD-II-CAN-BUS-Development-Kit-p-2993.html) |  TBC | 5V | CAN Bus | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
+| [OBD-II CAN-BUS Development Kit](https://docs.longan-labs.cc/1030002/) |  TBC | 5V | CAN Bus | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 
 
 
