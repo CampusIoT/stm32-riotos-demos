@@ -34,6 +34,9 @@ Available in fabMSTIC
 | [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | TBC | None | [Teseo-LIV3F GNSS](https://www.st.com/en/positioning/teseo-liv3f.html) | TBC | TBC |
 | [X-NUCLEO-53L0A1](https://www.st.com/en/ecosystems/x-nucleo-53l0a1.html) | TBC | None | [VL53L0X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html) | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 | [X-NUCLEO-IDW01M1](https://www.st.com/en/ecosystems/x-nucleo-idw01m1.html) | ~5 | Wifi | TBC | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
+| [X-NUCLEO-AMICAM1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-sense-hw/x-nucleo-amicam1.html) | ~5 | None | Microphone | RiotOS: TBD, Stm32duino: TBD | TBC |
+| [X-NUCLEO-IHM07M1](https://www.st.com/en/ecosystems/x-nucleo-ihm07m1.html) | 0 | None | Brushless Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
+
 
 ## Arduino shields (Adafruit, Sparkfun ...)
 
