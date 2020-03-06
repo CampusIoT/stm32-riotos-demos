@@ -29,10 +29,10 @@ Available in fabMSTIC
 
 ## Arduino boards
 
-| Board         | Samples @ Fablab | MCU Model | Communication | Sensors | RIOT support | Demo |
-| ------------- | ---------------- | --------- | ------------- | ------------ | ------------ | ---- |
-| [NetDuino](https://www.wildernesslabs.co/Netduino) v1 | 1 | STM32F4 | None | Button | TBC | TBC |
-| [Arduino Portenta H7](https://www.st.com/en/ecosystems/arduino-portenta-h7.html) | 0 | STM32H747 dual core Cortex M7@480 MHz + Cortex M4@240MHz | None | Button | TBC | TBC |
+| Board         | Samples @ Fablab | MCU Model | Communication | Sensors      | RIOT support | Fritzing | Demo |
+| ------------- | ---------------- | --------- | ------------- | ------------ | ------------ | -------- | ---- |
+| [NetDuino](https://www.wildernesslabs.co/Netduino) v1 | 1 | STM32F405 | None | Button | TBC | [Part](http://fritzing.org/projects/stm32f405-board/) | TBC | 
+| [Arduino Portenta H7](https://www.st.com/en/ecosystems/arduino-portenta-h7.html) | 0 | STM32H747 dual core Cortex M7@480 MHz + Cortex M4@240MHz | None | Button | TBC | TBC | TBC |
 
 
 
