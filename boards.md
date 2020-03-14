@@ -65,8 +65,8 @@ Available in fabMSTIC
 
 ## Breakout Qwiic
 
-| Board         | Samples @ Fablab | Voltage   | Interface | Sensors       | OS Support | Fritzing     | Demo     |
-| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+| Board         | Samples @ Fablab | Voltage   | Interface | Sensors | OS Support | Fritzing | Demo     |
+| ------------- | ---------------- | --------- | ----------| ------- | ---------- | -------- | -------- |
 | [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607) | 1 | TBC | I2C | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
 | [SparkFun Environmental Combo Breakout - CCS811/BME280](https://www.sparkfun.com/products/14348) | 0 | TBC | I2C | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
 
