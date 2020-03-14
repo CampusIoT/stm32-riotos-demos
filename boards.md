@@ -68,7 +68,7 @@ Available in fabMSTIC
 | Board         | Samples @ Fablab | Voltage   | Interface | Sensors | OS Support | Fritzing | Demo     |
 | ------------- | ---------------- | --------- | ----------| ------- | ---------- | -------- | -------- |
 | [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607) | 1 | TBC | I2C | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
-| [SparkFun Environmental Combo Breakout - CCS811/BME280](https://www.sparkfun.com/products/14348) | 0 | TBC | I2C | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
+| [SparkFun Environmental Combo Breakout - CCS811/BME280](https://www.sparkfun.com/products/14348) | 0 | TBC | I2C | CCS811, BME280 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
 
 Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-pin JST connectors to quickly interface development boards with sensors, LCDs, relays and more.
 
@@ -77,7 +77,7 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 [Manufacturer full list](https://www.seeedstudio.com/category/Sensor-for-Grove-c-24.html)
 
 | Sensors       | Samples @ Fablab | Voltage   | Sensors       | OS support | Fritzing     | Demo     |
-| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
+| ------------- | ---------------- | --------- | ------------- | ---------- | ------------ | -------- |
 | [Ultrasonic Ranger](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/) |  TBC | 3.3V, 5V | Ultrasonic | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [Dust Sensor](http://wiki.seeedstudio.com/Grove-Dust_Sensor/) |  TBC | 5V | Ultrasonic | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [Gas Sensor (MQ2)](http://wiki.seeedstudio.com/Grove-Gas_Sensor-MQ2/) Combustible Gas, Smoke |  TBC | 5V | MQ2 | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
@@ -87,10 +87,6 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [Adjustable PIR Motion Sensor](http://wiki.seeedstudio.com/Grove-Adjustable_PIR_Motion_Sensor/) PIR Motion |  TBC | 3.3V, 5V | PIR | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [Infrared Temperature Sensor Array (AMG8833)](http://wiki.seeedstudio.com/Grove-Infrared_Temperature_Sensor_Array-AMG8833/) |  TBC | 3.3V | AMG8833 IR grid | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [OBD-II CAN-BUS Development Kit](https://docs.longan-labs.cc/1030002/) |  TBC | 5V | CAN Bus | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
-
-
-
-
 
 ## Misc
 
