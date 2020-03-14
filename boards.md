@@ -65,9 +65,12 @@ Available in fabMSTIC
 
 ## Breakout Qwiic
 
-| Board         | Samples @ Fablab | Voltage   | Sensors       | OS Support | Fritzing     | Demo     |
+| Board         | Samples @ Fablab | Voltage   | Interface | Sensors       | OS Support | Fritzing     | Demo     |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- |
-| [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607) | 1 | TBC | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
+| [SparkFun Grid-EYE Infrared Array Breakout - AMG8833](https://www.sparkfun.com/products/14607) | 1 | TBC | I2C | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
+| [SparkFun Environmental Combo Breakout - CCS811/BME280](https://www.sparkfun.com/products/14348) | 0 | TBC | I2C | AMG8833 | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
+
+Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-pin JST connectors to quickly interface development boards with sensors, LCDs, relays and more.
 
 ## Seeed Studio Grove sensors
 
