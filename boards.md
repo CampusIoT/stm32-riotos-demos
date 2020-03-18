@@ -15,6 +15,9 @@ Available in fabMSTIC
 | [STM32F4DISCOVERY](https://www.st.com/en/evaluation-tools/stm32f0discovery.html) | 21 | [STM32F407VG](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f4-series/stm32f407-417/stm32f407vg.html) | None | accelerometer, digital microphone, 1 audio DAC with integrated class D speaker driver, LEDs, push-buttons | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32f4discovery) | TBC |
 | [32L0538DISCOVERY](https://www.st.com/en/evaluation-tools/32l0538discovery.html) | ~3 | [STM32L053C8T6](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x3/stm32l053c8.html) | None | linear touch sensor, touch keys, IDD current measurement, 2.04” E-paper display, NFC connector for PLUG-CR95HF-B board, LEDs, pushbuttons | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32l0538-disco) | TBC |
 | [STEVAL-STRKT01 LoRa® IoT tracker](https://www.st.com/en/evaluation-tools/32l0538discovery.html) | 0 | [STM32L072CZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l072cz.html) | CMWX1ZZABZ-091 LoRa® module (by Murata) | GNSS, HTS221, LPS22HB | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1) | TBC |
+| [32F429IDISCOVERY](https://www.st.com/en/evaluation-tools/32f429idiscovery.html) | 0 | [STM32F429](https://www.st.com/en/microcontrollers-microprocessors/stm32f429-439.html) | TBD | 2.4" QVGA TFT LCD, L3GD20, ST-MEMS motion sensor 3-axis digital output gyroscope,  | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32f429i-disc1) | TBC |
+
+
 
 
 [Full product selector](https://www.st.com/en/evaluation-tools/stm32-discovery-kits.html#products).
