@@ -34,6 +34,21 @@ Available in fabMSTIC
 | [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 
+
+    Nucleo Codification : NUCLEO-XXYYRT or  NUCLEO-XXYYRT-P
+
+    XX : MCU series in STM32 Arm Cortex MCUs
+    YY : MCU product line in the series
+    R : STM32 package pin count
+    T : STM32 Flash memory size
+        * 8 for 64 Kbytes
+        * B for 128 Kbytes
+        * C for 256 Kbytes
+        * E for 512 Kbytes
+        * G for 1 Mbyte
+        * Z for 192 Kbytes
+    P : when STM32 has external SMPS function
+
 ## Arduino boards
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors      | OS support | Fritzing | Demo |
