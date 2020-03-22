@@ -17,23 +17,15 @@ Available in fabMSTIC
 | [STEVAL-STRKT01 LoRa® IoT tracker](https://www.st.com/en/evaluation-tools/32l0538discovery.html) | 0 | [STM32L072CZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l072cz.html) | CMWX1ZZABZ-091 LoRa® module (by Murata) | GNSS, HTS221, LPS22HB | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1) | TBC |
 | [32F429IDISCOVERY](https://www.st.com/en/evaluation-tools/32f429idiscovery.html) | 0 | [STM32F429](https://www.st.com/en/microcontrollers-microprocessors/stm32f429-439.html) | TBD | 2.4" QVGA TFT LCD, L3GD20, ST-MEMS motion sensor 3-axis digital output gyroscope,  | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32f429i-disc1) | TBC |
 
-
-
-
 [Full product selector](https://www.st.com/en/evaluation-tools/stm32-discovery-kits.html#products).
 
-## Nucleo boards
+## Nucleo 32 boards
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
-| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | TBC | STM32F401RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | TBC | STM32F411RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | TBC | STM32F446RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | TBC | STM32L152RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
-| [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 
+
+## Nucleo 64 boards
 
     Nucleo Codification : NUCLEO-XXYYRT or  NUCLEO-XXYYRT-P
 
@@ -48,6 +40,24 @@ Available in fabMSTIC
         * G for 1 Mbyte
         * Z for 192 Kbytes
     P : when STM32 has external SMPS function
+
+
+
+| Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
+| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | Riot OS: TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | TBC | STM32F401RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | TBC | STM32F411RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | Min 2 | [STM32F446RE](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f4-series/stm32f446/stm32f446re.html) | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-L152RE](https://www.st.com/en/evaluation-tools/nucleo-l152re.html) | TBC | STM32L152RE | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-L073RZ](https://www.st.com/en/evaluation-tools/nucleo-l073rz.html) | TBC | STM32L073RZ | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [NUCLEO-L053R8](https://www.st.com/en/evaluation-tools/nucleo-l053r8.html) | TBC | STM32L053R8 | None | Button | TBC, MBed: TBC, Stm32duino: TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+
+## Nucleo 144 boards
+
+| Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
+| ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
+| [NUCLEO-F446ZE](https://www.st.com/en/evaluation-tools/nucleo-f446ze.html) | Min 2 | [STM32F446ZE](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f4-series/stm32f446/stm32f446ze.html) | None | Button | TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
 
 ## Arduino boards
 
