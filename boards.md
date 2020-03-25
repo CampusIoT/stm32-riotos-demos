@@ -62,6 +62,7 @@ Available in fabMSTIC
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
 | [NUCLEO-F446ZE](https://www.st.com/en/evaluation-tools/nucleo-f446ze.html) | Min 2 | [STM32F446ZE](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f4-series/stm32f446/stm32f446ze.html) | None | Button | TBC, MBed: TBC, Stm32duino: TBC | TBC | TBC |
+| [NUCLEO-F746ZG](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-nucleo-boards/nucleo-f746zg.html) | Min 3 | [STM32F746ZG](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f7-series/stm32f7x6/stm32f746zg.html) | Ethernet (RJ45) | Button | RIOTOS: [Partial ?](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f746zg), MBed: TBC, Stm32duino: TBC | TBC | TBC |
 
 ## Arduino boards
 
