@@ -95,6 +95,11 @@ Available in fabMSTIC
 | SX1272MB2xAS | 1 | LoRa | TBC | TBC | TBC |
 | X-NUCLEO-CCA02M1 | 1 | None | Mic | TBC | TBC |
 
+## Nucleo Packs
+
+* [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway : 3 exemplaires
+* [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html) STM32 Nucleo pack LoRa™ LF band sensor and gateway : 1 exemplaire
+
 ## Arduino shields (Adafruit, Sparkfun ...)
 
 | Board         | Samples @ Fablab | Voltage   | Sensors       | OS Support | Fritzing     | Demo     |
