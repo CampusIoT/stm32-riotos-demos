@@ -12,13 +12,13 @@
  */
 void check_saul_reg_error(int res)
 {
-    if (res == ENODEV) {
+    if (res == -ENODEV) {
         puts("Device is invalid");
     }
-    else if (res == ENOTSUP) {
+    else if (res == -ENOTSUP) {
         puts("Read operation is not supported by device");
     }
-    else if (res == ECANCELED) {
+    else if (res == -ECANCELED) {
         puts("Device error");
     }
 }
