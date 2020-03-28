@@ -45,7 +45,8 @@ Available in fabMSTIC
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
-| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | TBC | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
+| [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | TBC | Part | TBC |
+| NUCLEO-WL55JC1](https://blog.st.com/stm32wl/) | TBC | [STM32WL](https://blog.st.com/stm32wl/) | LoRa (SX1262) | Button | TBC | Part | TBC |
 | [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | 3 | STM32F401RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | 3 | STM32F411RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | 2 | STM32F446RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
