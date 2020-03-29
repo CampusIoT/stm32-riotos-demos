@@ -78,6 +78,7 @@ Available in fabMSTIC
 | ------------- | ---------------- | -------------|  ------- | ------------ | ---- |
 | [X-NUCLEO-IKS01A3 - Carte d'extension, Capteur mouvement et environnent MEMS pour STM32 Nucleo, Arduino UNO Layout R3](https://www.st.com/en/ecosystems/x-nucleo-iks01a3.html) | 1 | TBC | LSM6DSO, LIS2MDL, LIS2DW12, LPS22HH, HTS221, STTS751 | TBC, MBed: TBC, Stm32duino: TBC | TBC |
 | [I-NUCLEO-LRWAN1 -  Carte d'extension, Module USI LoRa LPWAN, Capteurs multiples pour Nucleo STM32, Compatible Arduino](https://www.st.com/en/evaluation-tools/i-nucleo-lrwan1.html) | 4| LoRa | LSM303AGR, HTS221, LPS22HB | RiotOS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/i-nucleo-lrwan1), Stm32duino [Yes](https://github.com/stm32duino/I-NUCLEO-LRWAN1), MBed: TBD  | TBC |
+| LRWAN_NS1 LoRa® LF band (433/470 MHz) sensor expansion board (from RisingHF) | 1 | LoRa (433/470 MHz) | HTS221 temperature and humidity, LPS22HB pressure, LSM6DS3 accelerometer and gyroscope, LIS3MDL magnetometer | TBC | TBC |
 | [X-NUCLEO-GNSS1A1 GNSS expansion board](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html) | 2 | None | [Teseo-LIV3F GNSS](https://www.st.com/en/positioning/teseo-liv3f.html) | TBC, MBed: TBC, Stm32duino: TBC | TBC |
 | [X-NUCLEO-53L0A1](https://www.st.com/en/ecosystems/x-nucleo-53l0a1.html) | 1 | None | [VL53L0X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html) | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 | X-NUCLEO-53L1A1 | 2 | TBC | Ranging, TOF | TBC | TBC |
@@ -95,6 +96,7 @@ Available in fabMSTIC
 | VL53L0X | 1 | TBC | TOF, Ranging | TBC | TBC |
 | SX1272MB2xAS | 1 | LoRa | TBC | TBC | TBC |
 | X-NUCLEO-CCA02M1 | 1 | None | Mic | TBC | TBC |
+
 
 ## Nucleo Packs
 
