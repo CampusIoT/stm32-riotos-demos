@@ -44,7 +44,7 @@ static cayenne_lpp_t lpp;
 #define DR_INIT 5
 #define ADR_ON true
 
-#define TX_PERIOD 10 // Tx period 5 minutes
+#define TX_PERIOD 300 // Tx period 5 minutes
 
 #define DATA_PORT 2
 #define ERROR_PORT 99
@@ -55,7 +55,7 @@ static void sender(void)
     {
         char message[64];
 
-        // TODO introduire un alea dans la TX_PERIOD
+        // TODO introduire un alea de quelques secondes dans la TX_PERIOD pour éviter que des endpoints qui redémarrent ensemble se brouillent les uns les autres.
         // TODO verifier que la TX_PERIOD est compatible avec le DC (sinon, le Tx retourne le code=13)
 
         /* sleep TX_PERIOD secs */
