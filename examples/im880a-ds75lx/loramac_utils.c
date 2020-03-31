@@ -21,6 +21,13 @@
 #include "net/loramac.h"
 #include "semtech_loramac.h"
 
+#include <string.h>
+#include "cpu_conf.h"
+#include "periph/cpuid.h"
+
+#include "hashes/sha1.h"
+
+
 char *semtech_loramac_err_message(uint8_t errCode)
 {
     switch (errCode)
@@ -100,4 +107,41 @@ uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate
 
     puts("Join procedure succeeded");
     return joinRes;
+}
+
+static const uint8_t appeui_mask[LORAMAC_APPEUI_LEN/2] = { 0xff, 0xff, 0xff, 0xff };
+
+void printf_ba(const uint8_t* ba, size_t len) {
+    for (unsigned int i = 0; i < len; i++) {
+        printf("%02x", ba[i]);
+    }
+    printf("\n");
+}
+
+/**
+ * Forge the DevEUI, AppEUI and the AppKey from the CPU ID of the MCU and a secret array of bytes
+ */
+void loramac_forge_deveui(uint8_t *deveui, uint8_t *appeui, uint8_t *appkey, const uint8_t* secret)
+{
+    uint8_t id[CPUID_LEN];
+    /* read the CPUID */
+    cpuid_get(id);
+
+    if(CPUID_LEN > LORAMAC_DEVEUI_LEN) {
+        memcpy(deveui,id+(CPUID_LEN-LORAMAC_DEVEUI_LEN),LORAMAC_DEVEUI_LEN);
+    } else {
+        memcpy(deveui+(LORAMAC_DEVEUI_LEN-CPUID_LEN),id,LORAMAC_DEVEUI_LEN);
+    }
+    memcpy(appeui,deveui,LORAMAC_APPEUI_LEN);
+    memcpy(appeui+(LORAMAC_APPEUI_LEN/2),appeui_mask,LORAMAC_APPEUI_LEN/2);
+
+    // Use secret for generating securely the appkey
+    sha1_context ctx;
+    sha1_init(&ctx);
+    sha1_update(&ctx, deveui, LORAMAC_DEVEUI_LEN);
+    sha1_update(&ctx, appeui, LORAMAC_APPEUI_LEN);
+    sha1_update(&ctx, secret, LORAMAC_APPKEY_LEN);
+    uint8_t digest[SHA1_DIGEST_LENGTH];
+    sha1_final(&ctx, &digest);
+    memcpy(appkey,digest,LORAMAC_APPKEY_LEN);
 }

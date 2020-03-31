@@ -33,7 +33,7 @@ ds75lx_t ds75lx;
 /* Cayenne LPP buffer */
 static cayenne_lpp_t lpp;
 
-#include "activation.h"
+// #include "activation.h"
 
 #include "loramac_utils.h"
 
@@ -49,6 +49,25 @@ static cayenne_lpp_t lpp;
 
 #define DATA_PORT 2
 #define ERROR_PORT 99
+
+#define FORGE_DEVEUI_APPEUI_APPKEY true
+
+#ifdef FORGE_DEVEUI_APPEUI_APPKEY
+static const uint8_t SECRET[LORAMAC_APPKEY_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x02, 0x00, 0x00, 0x01,
+                                                    0xca, 0xfe, 0xba, 0xbe, 0x02, 0xff, 0xff, 0xff };
+static uint8_t deveui[LORAMAC_DEVEUI_LEN];
+static uint8_t appeui[LORAMAC_APPEUI_LEN];
+static uint8_t appkey[LORAMAC_APPKEY_LEN];
+#else
+
+// DevEUI cafebabe02000001
+// AppEUI cafebabe02ffffff
+// AppKey cafebabe02000001cafebabe02ffffff
+static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x02, 0x00, 0x00, 0x01 };
+static const uint8_t appeui[LORAMAC_APPEUI_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x02, 0xff, 0xff, 0xff };
+static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0xca, 0xfe, 0xba, 0xbe, 0x02, 0x00, 0x00, 0x01, 0xca, 0xfe, 0xba, 0xbe, 0x02, 0xff, 0xff, 0xff };
+
+#endif
 
 static void sender(void)
 {
@@ -93,11 +112,9 @@ static void sender(void)
         /* clear buffer once done */
         cayenne_lpp_reset(&lpp);
 
-
+        /* sleep TX_PERIOD secs */
         // TODO introduire un alea de quelques secondes dans la TX_PERIOD pour éviter que des endpoints qui redémarrent ensemble se brouillent les uns les autres.
         // TODO verifier que la TX_PERIOD est compatible avec le DC (sinon, le Tx retourne le code=13)
-
-        /* sleep TX_PERIOD secs */
         xtimer_sleep(TX_PERIOD);
     }
 
@@ -157,15 +174,22 @@ int main(void)
     /* set ADR flag */
     semtech_loramac_set_adr(&loramac, ADR_ON);
 
+#ifdef FORGE_DEVEUI_APPEUI_APPKEY
+    /* forge the deveui, appeui and appkey of the endpoint */
+    loramac_forge_deveui(deveui,appeui,appkey,SECRET);
+    printf("Secret:"); printf_ba(SECRET,LORAMAC_APPKEY_LEN);
+#endif
+    printf("DevEUI:"); printf_ba(deveui,LORAMAC_DEVEUI_LEN);
+    printf("AppEUI:"); printf_ba(appeui,LORAMAC_APPEUI_LEN);
+    printf("AppKey:"); printf_ba(appkey,LORAMAC_APPKEY_LEN);
+
     /* set the LoRaWAN keys */
-    // TODO for DevEUI, find the id of the MCU
     semtech_loramac_set_deveui(&loramac, deveui);
     semtech_loramac_set_appeui(&loramac, appeui);
     semtech_loramac_set_appkey(&loramac, appkey);
 
     /* start the OTAA join procedure (and retries in required) */
     /*uint8_t joinRes = */ loramac_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
-
 
     /* start the receiver thread */
     thread_create(_receiver_stack, sizeof(_receiver_stack),
