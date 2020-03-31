@@ -13,11 +13,15 @@ USEMODULE += ds75lx
 USEMODULE += $(DRIVER)
 
 USEPKG += semtech-loramac
+USEMODULE += semtech_loramac_rx
+
 USEPKG += cayenne-lpp
 
 DEVELHELP ?= 1
 
-RIOTBASE ?= ${RIOT_BASE}
+# RIOTBASE ?= ${RIOT_BASE}
+RIOTBASE ?= /Users/donsez/github/RIOT-OS/RIOT
+
 CFLAGS += -DREGION_$(REGION)
 CFLAGS += -DLORAMAC_ACTIVE_REGION=LORAMAC_REGION_$(REGION)
 

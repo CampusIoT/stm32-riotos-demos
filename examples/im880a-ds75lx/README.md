@@ -2,7 +2,7 @@
 
 The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module and a DS75LX temperature sensor.
 
-The demonstration program reads the temperature from the DS75LX sensor and sends it over a LoRaWAN network.
+The demonstration program reads the temperature from the DS75LX sensor and sends it into an uplink message over a LoRaWAN network. The program prints the payload of the downlink messages. 
 
 ## Libraries
 
@@ -37,6 +37,33 @@ Connect the board TX pin to USBSerial port and then configure and start `minicom
 ```bash
 ll /dev/tty.*
 minicom -s
+```
+
+## Downlink
+
+Send a downlink message to the endpoint throught your network server.
+
+For CampusIoT:
+```bash
+ORGID=<YOUR_ORG_ID>
+BROKER=lora.campusiot.imag.fr
+MQTTUSER=org-$ORGID
+MQTTPASSWORD=<YOUR_ORG_TOKEN>
+applicationID=1
+devEUI=1234567890abcdef
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": 10,"data":"SGVsbG8gQ2FtcHVzSW9UICE="}'
+```
+
+The output on the console is:
+```bash
+main(): This is RIOT! (Version: 2020.04-devel-1660-gb535c)                      
+Starting join procedure: dr=5                                                   
+Join procedure succeeded                                                        
+Sending LPP payload with : T: 22.75                                             
+Received ACK from network                                                       
+Sending LPP payload with : T: 22.75                                             
+Data received: Hello CampusIoT !, port: 10                                      
+Received ACK from network                                                       
 ```
 
 ## References

@@ -1,3 +1,23 @@
+/*
+ * Copyright (C) 2020 INRIA
+ *
+ * This file is subject to the terms and conditions of the GNU Lesser
+ * General Public License v2.1. See the file LICENSE in the top level
+ * directory for more details.
+ */
+
+/**
+ * @ingroup     pkg_semtech_loramac
+ * @{
+ *
+ * @file
+ * @brief       Utility functions for Semtech LoRaMac library.
+ *
+ * @author      Didier Donsez <didier.donsez@univ-grenoble-alpes.fr>
+ *
+ * @}
+ */
+
 #include "net/loramac.h"
 #include "semtech_loramac.h"
 
@@ -41,39 +61,41 @@ char *semtech_loramac_err_message(uint8_t errCode)
 /**
  * start the OTAA join procedure (and retries if required)
  */
-uint8_t loramac_join_tentative_loop(semtech_loramac_t *loramac, uint8_t dataRate, uint32_t nextTentative, uint32_t maxTentative)
+uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate, uint32_t nextRetryTime, uint32_t maxNextRetryTime)
 {
-    printf("Starting join procedure: dr=%d\n", dataRate);
+    // TODO print DevEUI, AppEUI, AppKey
 
-    semtech_loramac_set_dr(loramac, dataRate);
+    printf("Starting join procedure: dr=%d\n", initDataRate);
+
+    semtech_loramac_set_dr(loramac, initDataRate);
 
     uint8_t joinRes;
     while ((joinRes = semtech_loramac_join(loramac, LORAMAC_JOIN_OTAA)) != SEMTECH_LORAMAC_JOIN_SUCCEEDED)
     {
         printf("Join procedure failed: code=%d %s\n", joinRes, semtech_loramac_err_message(joinRes));
 
-        if (dataRate > 0)
+        if (initDataRate > 0)
         {
-            /* decrement Join Datarate */
-            dataRate--;
-            semtech_loramac_set_dr(loramac, dataRate);
+            /* decrement Join initDataRate */
+            initDataRate--;
+            semtech_loramac_set_dr(loramac, initDataRate);
         }
         else
         {
-            /* double nextTentative in order to save the battery */
-            if (nextTentative < maxTentative)
+            /* double nextRetryTime in order to save the battery */
+            if (nextRetryTime < maxNextRetryTime)
             {
-                nextTentative *= 2;
+                nextRetryTime *= 2;
             }
             else
             {
-                nextTentative = maxTentative;
+                nextRetryTime = maxNextRetryTime;
             }
         }
-        printf("Retry join procedure in %ld sec. at dr=%d\n", nextTentative, dataRate);
+        printf("Retry join procedure in %ld sec. at dr=%d\n", nextRetryTime, initDataRate);
 
         /* sleep JOIN_NEXT_TENTATIVE secs */
-        xtimer_sleep(nextTentative);
+        xtimer_sleep(nextRetryTime);
     }
 
     puts("Join procedure succeeded");
