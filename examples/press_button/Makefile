@@ -1,12 +1,10 @@
-APPLICATION = example
+APPLICATION = press_button
 
 BOARD ?= native
 
-RIOTBASE ?= $(CURDIR)/../RIOT/
+RIOTBASE ?= $(RIOT_BASE)
 
 DEVELHELP ?= 1
-
-USEMODULE += saul saul_default
 
 FEATURES_REQUIRED += periph_gpio
 FEATURES_REQUIRED += periph_gpio_irq
