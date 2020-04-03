@@ -27,6 +27,7 @@
 
 #include "hashes/sha1.h"
 
+// TODO print_loramac(semtech_loramac_t *loramac)
 
 char *semtech_loramac_err_message(uint8_t errCode)
 {
@@ -79,7 +80,7 @@ uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate
     uint8_t joinRes;
     while ((joinRes = semtech_loramac_join(loramac, LORAMAC_JOIN_OTAA)) != SEMTECH_LORAMAC_JOIN_SUCCEEDED)
     {
-        printf("Join procedure failed: code=%d %s\n", joinRes, semtech_loramac_err_message(joinRes));
+        printf("Join procedure failed: code=%d (%s)\n", joinRes, semtech_loramac_err_message(joinRes));
 
         if (initDataRate > 0)
         {
@@ -115,7 +116,6 @@ void printf_ba(const uint8_t* ba, size_t len) {
     for (unsigned int i = 0; i < len; i++) {
         printf("%02x", ba[i]);
     }
-    printf("\n");
 }
 
 /**

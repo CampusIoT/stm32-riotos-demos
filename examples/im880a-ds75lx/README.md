@@ -54,8 +54,14 @@ echo $AppKey
 
 ## Downlink
 
-Send a downlink message to the endpoint throught your network server.
+You can send a downlink message to the endpoint throught your network server.
 
+Downlink payload can be used for
+* sending an ASCII message (port = 1)
+* setting the realtime clock of the endpoint (port = 2)
+* setting the tx period of the data (port = 3)
+
+### Setup
 For CampusIoT:
 ```bash
 ORGID=<YOUR_ORG_ID>
@@ -64,7 +70,13 @@ MQTTUSER=org-$ORGID
 MQTTPASSWORD=<YOUR_ORG_TOKEN>
 applicationID=1
 devEUI=1234567890abcdef
-mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": 10,"data":"SGVsbG8gQ2FtcHVzSW9UICE="}'
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": 1,"data":"SGVsbG8gQ2FtcHVzSW9UICE="}'
+```
+
+### sending an ASCII message
+```bash
+PORT=1
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"SGVsbG8gQ2FtcHVzSW9UICE="}'
 ```
 
 The output on the console is:
@@ -79,9 +91,48 @@ Join procedure succeeded
 Sending LPP payload with : T: 22.75                                             
 Received ACK from network                                                       
 Sending LPP payload with : T: 22.75                                             
-Data received: Hello CampusIoT !, port: 10                                      
+Data received: Hello CampusIoT !, port: 1                                      
 Received ACK from network                                                       
 ```
+
+### Setting the realtime clock of the endpoint
+```bash
+PORT=2
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"5UKHXg=="}'
+```
+
+> The epoch is a unsigned 32 bit-long integer (big endian)
+
+The output on the console is:
+```bash
+...
+Received ACK from network                                                       
+Clock value is now   2000-01-01 00:00:36
+Sending LPP payload with : T: 22.50                                             
+Data received: epoch=1585922789, port: 2                                        
+Clock value is set to   2020-04-03 14:06:29                                     
+Clock value is now   2020-04-03 14:06:29                                        
+Received ACK from network                                                       
+```
+
+### setting the tx period of the data
+
+```bash
+PORT=3
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"PAA="}'
+```
+> The new tx period is 60 seconds (3C00)
+> The epoch is a unsigned 16 bit-long integer (big endian)
+
+The output on the console is:
+```bash
+...
+Sending LPP payload with : T: 22.75                                             
+Data received: tx_period=60, port: 3                                            
+Received ACK from network                                                       
+```
+
+
 
 ## References
 * https://github.com/CampusIoT/tutorial/tree/master/riotos
