@@ -70,7 +70,6 @@ MQTTUSER=org-$ORGID
 MQTTPASSWORD=<YOUR_ORG_TOKEN>
 applicationID=1
 devEUI=1234567890abcdef
-mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": 1,"data":"SGVsbG8gQ2FtcHVzSW9UICE="}'
 ```
 
 ### sending an ASCII message
