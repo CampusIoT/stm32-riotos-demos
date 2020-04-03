@@ -132,10 +132,10 @@ Data received: tx_period=60, port: 3
 Received ACK from network                                                       
 ```
 
-
-
 ## References
 * https://github.com/CampusIoT/tutorial/tree/master/riotos
 * https://github.com/CampusIoT/tutorial/tree/master/im880a
 
-
+## TODO
+* Multiple data (temperature) per Tx (configure TX Period and Sample into the same downlink message)
+* Clock Sync https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100
