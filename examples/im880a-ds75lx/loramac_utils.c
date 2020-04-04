@@ -18,6 +18,9 @@
  * @}
  */
 
+#define ENABLE_DEBUG (1)
+#include "debug.h"
+
 #include "net/loramac.h"
 #include "semtech_loramac.h"
 
@@ -73,14 +76,14 @@ uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate
 {
     // TODO print DevEUI, AppEUI, AppKey
 
-    printf("Starting join procedure: dr=%d\n", initDataRate);
+    DEBUG("Starting join procedure: dr=%d\n", initDataRate);
 
     semtech_loramac_set_dr(loramac, initDataRate);
 
     uint8_t joinRes;
     while ((joinRes = semtech_loramac_join(loramac, LORAMAC_JOIN_OTAA)) != SEMTECH_LORAMAC_JOIN_SUCCEEDED)
     {
-        printf("Join procedure failed: code=%d (%s)\n", joinRes, semtech_loramac_err_message(joinRes));
+        DEBUG("Join procedure failed: code=%d (%s)\n", joinRes, semtech_loramac_err_message(joinRes));
 
         if (initDataRate > 0)
         {
@@ -100,21 +103,21 @@ uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate
                 nextRetryTime = maxNextRetryTime;
             }
         }
-        printf("Retry join procedure in %ld sec. at dr=%d\n", nextRetryTime, initDataRate);
+        DEBUG("Retry join procedure in %ld sec. at dr=%d\n", nextRetryTime, initDataRate);
 
         /* sleep JOIN_NEXT_TENTATIVE secs */
         xtimer_sleep(nextRetryTime);
     }
 
-    puts("Join procedure succeeded");
+    DEBUG("Join procedure succeeded\n");
     return joinRes;
 }
 
 static const uint8_t appeui_mask[LORAMAC_APPEUI_LEN/2] = { 0xff, 0xff, 0xff, 0xff };
 
-void printf_ba(const uint8_t* ba, size_t len) {
+void DEBUG_ba(const uint8_t* ba, size_t len) {
     for (unsigned int i = 0; i < len; i++) {
-        printf("%02x", ba[i]);
+        DEBUG("%02x", ba[i]);
     }
 }
 

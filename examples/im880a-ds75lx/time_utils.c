@@ -1,4 +1,7 @@
 
+#define ENABLE_DEBUG (1)
+#include "debug.h"
+
 #include <time.h>
 
 #include "periph_conf.h"
@@ -57,7 +60,7 @@ void epoch_to_time(struct tm *timep, const uint32_t epoch)
  */
 void print_time(const char *label, const struct tm *time)
 {
-    printf("%s  %04d-%02d-%02d %02d:%02d:%02d\n", label,
+    DEBUG("%s  %04d-%02d-%02d %02d:%02d:%02d\n", label,
             time->tm_year + TM_YEAR_OFFSET,
             time->tm_mon + 1,
             time->tm_mday,

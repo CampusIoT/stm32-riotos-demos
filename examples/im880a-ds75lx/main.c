@@ -10,6 +10,9 @@
  * directory for more details.
  */
 
+#define ENABLE_DEBUG (1)
+#include "debug.h"
+
 #include <string.h>
 
 #include "xtimer.h"
@@ -32,9 +35,6 @@
 #include "ds75lx_params.h"
 
 #include "time_utils.h"
-
-#define ENABLE_DEBUG (0)
-#include "debug.h"
 
 /* Declare globally the loramac descriptor */
 static semtech_loramac_t loramac;
@@ -90,8 +90,6 @@ static void sender(void)
 {
     while (1)
     {
-        char message[64];
-
         // TODO si l'initialisation du ds75lx a échoué, il faut envoyer un message avec le fPort PORT_UP_ERROR
 
         /* do some measurements */
@@ -109,21 +107,17 @@ static void sender(void)
             temperature = -temperature;
         }
 
-        sprintf(message, "T:%c%d.%02d",
+        DEBUG("Sending LPP payload with : T=%c%d.%02d\n",
                 negative ? '-' : ' ',
                 (int)(temperature / 100),
                 (int)(temperature % 100));
-
-        //uint8_t dataRate = semtech_loramac_get_dr(&loramac);
-        //printf("Sending LPP payload with : %s at dr=%d\n", message, dataRate);
-        printf("Sending LPP payload with : %s\n", message);
 
         /* send the LoRaWAN message */
         uint8_t ret = semtech_loramac_send(&loramac, lpp.buffer, lpp.cursor);
 
         if (ret != SEMTECH_LORAMAC_TX_DONE)
         {
-            printf("Cannot send LPP payload: ret code: %d (%s)\n", ret, semtech_loramac_err_message(ret));
+            DEBUG("Cannot send LPP payload: ret code: %d (%s)\n", ret, semtech_loramac_err_message(ret));
         }
 
         /* clear buffer once done */
@@ -156,13 +150,13 @@ static void *receiver(void *arg)
                 switch(loramac.rx_data.port) {
                     case PORT_DN_TEXT:
                         loramac.rx_data.payload[loramac.rx_data.payload_len] = 0;
-                        printf("Data received: text=%s, port: %d \n",
+                        DEBUG("Data received: text=%s, port: %d \n",
                             (char *)loramac.rx_data.payload, loramac.rx_data.port);
                         break;
                     case PORT_DN_EPOCH:
                         if(loramac.rx_data.payload_len == sizeof(epoch)) {
                             epoch=*((uint32_t*)loramac.rx_data.payload);
-                            printf("Data received: epoch=%ld, port: %d\n",
+                            DEBUG("Data received: epoch=%ld, port: %d\n",
                                 epoch, loramac.rx_data.port);
                             struct tm new_time;
                             epoch_to_time(&new_time, epoch);
@@ -171,31 +165,31 @@ static void *receiver(void *arg)
                             epoch_set = true;
 
                         } else {
-                            printf("Data received: bad size for epoch, port: %d\n",
+                            DEBUG("Data received: bad size for epoch, port: %d\n",
                                  loramac.rx_data.port);
                         }
                         break;
                     case PORT_DN_SET_TX_PERIOD:
                         if(loramac.rx_data.payload_len == sizeof(tx_period)) {
                             tx_period=*((uint16_t*)loramac.rx_data.payload);
-                            printf("Data received: tx_period=%d, port: %d\n",
+                            DEBUG("Data received: tx_period=%d, port: %d\n",
                                 tx_period, loramac.rx_data.port);
                         } else {
-                            printf("Data received: bad size for tx_period, port: %d\n",
+                            DEBUG("Data received: bad size for tx_period, port: %d\n",
                                  loramac.rx_data.port);
                         }
                         break;
                     default:
-                        printf("Data received: ");
+                        DEBUG("Data received: ");
                         printf_ba(loramac.rx_data.payload, loramac.rx_data.payload_len);
-                        printf(", port: %d\n",loramac.rx_data.port);
+                        DEBUG(", port: %d\n",loramac.rx_data.port);
                         break;
                 }
                 break;
 
             case SEMTECH_LORAMAC_RX_CONFIRMED:
                 // TODO if too much unconfirmed Tx frames --> rejoin
-                puts("Received ACK from network");
+                DEBUG("Received ACK from network\n");
                 break;
 
             default:
@@ -219,7 +213,7 @@ int main(void)
     result = ds75lx_init(&ds75lx, &ds75lx_params[0]);
     if (result != DS75LX_OK)
     {
-        puts("[Error] Failed to initialize DS75LX sensor");
+        DEBUG("[Error] Failed to initialize DS75LX sensor\n");
         port = PORT_UP_ERROR;
     }
     semtech_loramac_set_tx_port(&loramac, port);
@@ -234,7 +228,7 @@ int main(void)
     /* forge the deveui, appeui and appkey of the endpoint */
     fmt_hex_bytes(secret, SECRET);
     loramac_forge_deveui(deveui,appeui,appkey,secret);
-    printf("Secret:"); printf_ba(secret,LORAMAC_APPKEY_LEN); printf("\n");
+    DEBUG("Secret:"); printf_ba(secret,LORAMAC_APPKEY_LEN); DEBUG("\n");
 #else
     /* Convert identifiers and application key */
     fmt_hex_bytes(deveui, DEVEUI);
@@ -242,9 +236,9 @@ int main(void)
     fmt_hex_bytes(appkey, APPKEY);
 #endif
 
-    printf("DevEUI:"); printf_ba(deveui,LORAMAC_DEVEUI_LEN); printf("\n");
-    printf("AppEUI:"); printf_ba(appeui,LORAMAC_APPEUI_LEN); printf("\n");
-    printf("AppKey:"); printf_ba(appkey,LORAMAC_APPKEY_LEN); printf("\n");
+    DEBUG("DevEUI:"); printf_ba(deveui,LORAMAC_DEVEUI_LEN); DEBUG("\n");
+    DEBUG("AppEUI:"); printf_ba(appeui,LORAMAC_APPEUI_LEN); DEBUG("\n");
+    DEBUG("AppKey:"); printf_ba(appkey,LORAMAC_APPKEY_LEN); DEBUG("\n");
 
     /* set the LoRaWAN keys */
     semtech_loramac_set_deveui(&loramac, deveui);
