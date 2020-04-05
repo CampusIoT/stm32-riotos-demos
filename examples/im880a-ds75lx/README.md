@@ -1,6 +1,13 @@
 # IMST iM880a Board
 
+## Board
 The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module and a DS75LX temperature sensor.
+
+<p align="center">
+<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
+</p>
+
+## Demonstration
 
 The demonstration program reads the temperature from the DS75LX sensor and sends it into an uplink message over a LoRaWAN network. The program prints the payload of the downlink messages. 
 
