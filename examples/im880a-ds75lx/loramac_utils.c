@@ -17,9 +17,12 @@
  *
  * @}
  */
+#include <stddef.h>
 
 #define ENABLE_DEBUG (1)
 #include "debug.h"
+
+#include "inttypes.h"
 
 #include "net/loramac.h"
 #include "semtech_loramac.h"
@@ -115,7 +118,7 @@ uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate
 
 static const uint8_t appeui_mask[LORAMAC_APPEUI_LEN/2] = { 0xff, 0xff, 0xff, 0xff };
 
-void DEBUG_ba(const uint8_t* ba, size_t len) {
+void printf_ba(const uint8_t* ba, size_t len) {
     for (unsigned int i = 0; i < len; i++) {
         DEBUG("%02x", ba[i]);
     }

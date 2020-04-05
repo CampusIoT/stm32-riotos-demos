@@ -1,0 +1,14 @@
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=false
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=false
+doxygen/doxygen_use_structural_commands=false
+eclipse.preferences.version=1
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/PATH/delimiter=\:
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/PATH/operation=append
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/PATH/value=/usr/local/opt/make/libexec/gnubin\:/Users/donsez/.nvm/versions/node/v8.11.3/bin\:/usr/local/bin\:/usr/bin\:/bin\:/usr/sbin\:/sbin
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/RIOT_BASE/delimiter=\:
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/RIOT_BASE/operation=append
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/RIOT_BASE/value=/Users/donsez/github/RIOT-OS/RIOT
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/append=true
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.2120243270/appendContributed=true

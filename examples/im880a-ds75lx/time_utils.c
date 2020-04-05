@@ -1,4 +1,6 @@
 
+#include <stddef.h>
+
 #define ENABLE_DEBUG (1)
 #include "debug.h"
 
