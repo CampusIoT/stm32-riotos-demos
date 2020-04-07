@@ -145,3 +145,4 @@ Received ACK from network
 ## TODO
 * Multiple data (temperature) per Tx (configure TX Period and Sample into the same downlink message)
 * Clock Sync https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100
+* Add [DS3234 Extremely Accurate SPI Bus RTC with Integrated Crystal and SRAM](https://datasheets.maximintegrated.com/en/ds/DS3234.pdf)
