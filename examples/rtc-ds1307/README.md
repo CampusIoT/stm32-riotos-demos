@@ -37,6 +37,8 @@ RTC time :   2020-04-09 16:05:00
 RTC time :   2020-04-09 16:05:18
 ```
 
+![Nucleo+DS1307](ds1307.jpg)
+
 ## Extra
 * http://fritzing.org/projects/rtc-ds1307
 * http://fritzing.org/media/fritzing-repo/projects/r/rtc-ds1307/fritzing/RTC_Finale_MEGA.fzz
