@@ -7,7 +7,7 @@ This simple application is a shelle for setting and getting the real time from a
 The DS1307 breakout should connected to the Nucleo according the wiring :
 
         DS1307  --  Nucleo
-        VCC     --  5V
+        VCC     --  5V or AVDD
         GND     --  GND
         SDA     --  SDA/D14
         SCL     --  SCL/D15
