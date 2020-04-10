@@ -143,4 +143,5 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [LIDAR-Lite v3](https://www.sparkfun.com/products/14032) | 1 | 5V | TBD | LiDar | TBC | TBC | TBC |
 | [SparkFun Air Quality Breakout - CCS811](https://www.sparkfun.com/products/14193) | 1 | 3.3V | I2C | VOC | TBC | TBC | TBC |
 | [SparkFun Particle Sensor Breakout - MAX30105](https://www.sparkfun.com/products/14045) | TBC | 5V | I2C | Particles | TBC | TBC | TBC |
+| [OneWire readers and iButtons](https://www.maximintegrated.com/en/products/ibutton/ibuttons/blue_dot.cfm) | TBC | 5V | 1Wire | TBC | TBC | TBC | TBC |
 
