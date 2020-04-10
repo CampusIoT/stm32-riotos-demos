@@ -144,4 +144,7 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [SparkFun Air Quality Breakout - CCS811](https://www.sparkfun.com/products/14193) | 1 | 3.3V | I2C | VOC | TBC | TBC | TBC |
 | [SparkFun Particle Sensor Breakout - MAX30105](https://www.sparkfun.com/products/14045) | TBC | 5V | I2C | Particles | TBC | TBC | TBC |
 | [OneWire readers and iButtons](https://www.maximintegrated.com/en/products/ibutton/ibuttons/blue_dot.cfm) | TBC | 5V | 1Wire | TBC | TBC | TBC | TBC |
+| [Melexis Contact-less Infrared Sensor - MLX90614](https://www.melexis.com/en/product/mlx90614/digital-plug-play-infrared-thermometer-to-can) | TBC | 3V and 5V version | PWM output ? | Temperature | TBC | TBC | TBC |
+
+
 
