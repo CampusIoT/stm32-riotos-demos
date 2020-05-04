@@ -145,4 +145,4 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [SparkFun Particle Sensor Breakout - MAX30105](https://www.sparkfun.com/products/14045) | TBC | 5V | I2C | Particles | TBC | TBC | TBC |
 | [OneWire readers and iButtons](https://www.maximintegrated.com/en/products/ibutton/ibuttons/blue_dot.cfm) | TBC | 5V | 1Wire | TBC | TBC | TBC | TBC |
 | [Melexis Contact-less Infrared Sensor - MLX90614](https://www.melexis.com/en/product/mlx90614/digital-plug-play-infrared-thermometer-to-can) | TBC | 3V and 5V version | PWM output ? | Temperature | TBC | TBC | TBC |
-| [Omron Vibration Sensors D7S (High-precision Seismic Sensor)](https://omronfs.omron.com/en_US/ecb/products/pdf/en-d7s.pdf) | TBC | TBC | TBC| Vibration | TBC | TBC | TBC |
+| [Omron Vibration Sensors D7S (High-precision Seismic Sensor)](https://omronfs.omron.com/en_US/ecb/products/pdf/en-d7s.pdf) | TBC | TBC | TBC| Vibration | TBC | TBC | [TBC](https://www.14core.com/wiring-d7s-seismic-earthquake-detection-mapping-intensity-vibration-sensor-on-microcontroller/) |
