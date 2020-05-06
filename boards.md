@@ -103,6 +103,9 @@ Available in fabMSTIC
 * [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway : 3 exemplaires
 * [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html) STM32 Nucleo pack LoRa™ LF band sensor and gateway : 1 exemplaire
 
+## Power monitoring
+* [STM X-NUCLEO-LPM01A Power Shield](https://www.st.com/en/evaluation-tools/x-nucleo-lpm01a.html). 2 boards available (Sylvain, Didier). [Tutorial](https://github.com/CampusIoT/tutorial/tree/master/x-nucleo-lpm01a)
+
 ## Arduino shields (Adafruit, Sparkfun ...)
 
 | Board         | Samples @ Fablab | Voltage   | Sensors       | OS Support | Fritzing     | Demo     |
