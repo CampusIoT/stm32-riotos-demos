@@ -25,6 +25,16 @@ Available in fabMSTIC
 
 ## Nucleo 32 boards
 
+    Nucleo Codification : NUCLEO-TXXXKY
+    TXXX        STM32 product line
+    K           STM32 package pin count (32 pins)
+    Y           STM32 Flash memory size:
+                    * 4 for 16 Kbytes
+                    * 6 for 32 Kbytes
+                    * 8 for 64 Kbytes
+                    * B for 128 Kbytes
+                    * C for 256 Kbytes
+
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
 | [NUCLEO-F301K8](https://www.st.com/en/evaluation-tools/nucleo-f303k8.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
