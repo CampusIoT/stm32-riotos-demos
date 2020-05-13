@@ -37,7 +37,8 @@ Available in fabMSTIC
 
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
-| [NUCLEO-F301K8](https://www.st.com/en/evaluation-tools/nucleo-f303k8.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
+| [NUCLEO-F301K8](https://www.st.com/resource/en/user_manual/dm00231744-stm32-nucleo32-boards-mb1180-stmicroelectronics.pdf) | TBC | TBC | TBD | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f303k8)  | TBC | TBC |
+| [NUCLEO-F303K8](https://www.st.com/resource/en/user_manual/dm00231744-stm32-nucleo32-boards-mb1180-stmicroelectronics.pdf) | TBC | TBC | TBD | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f303k8)  | TBC | TBC |
 
 
 
