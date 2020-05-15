@@ -8,6 +8,7 @@
 #define APP_CLOCK_H_
 
 #include <inttypes.h>
+#include "semtech_loramac.h"
 
 #define APP_CLOCK_PORT								(uint8_t) 202  // Application Layer Clock
 
@@ -89,5 +90,8 @@ struct APP_CLOCK_ForceDeviceResyncReq {
 	unsigned int NbTransmissions :3;
 	unsigned int RFU :5;
 }__attribute__((packed));
+
+extern uint8_t process_app_clock(semtech_loramac_t *loramac);
+
 
 #endif /* APP_CLOCK_H_ */

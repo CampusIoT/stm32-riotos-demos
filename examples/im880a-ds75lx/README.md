@@ -133,7 +133,7 @@ mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicat
 The output on the console is:
 ```bash
 ...
-Sending LPP payload with : T: 22.75                                             
+Sending LPP payload with : T: 22.75                                
 Data received: tx_period=60, port: 3                                            
 Received ACK from network                                                       
 ```
@@ -145,4 +145,6 @@ Received ACK from network
 ## TODO
 * Multiple data (temperature) per Tx (configure TX Period and Sample into the same downlink message)
 * Clock Sync https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100
+* Add [DS1307 RTC Clock](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)
 * Add [DS3234 Extremely Accurate SPI Bus RTC with Integrated Crystal and SRAM](https://datasheets.maximintegrated.com/en/ds/DS3234.pdf)
+* Add [DS18B20 1-Wire temperature stainless probe](https://github.com/RIOT-OS/RIOT/blob/master/tests/driver_ds18)

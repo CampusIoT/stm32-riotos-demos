@@ -171,6 +171,16 @@ static void *receiver(void *arg)
                         DEBUG("Data received: text=%s, port: %d \n",
                             (char *)loramac.rx_data.payload, loramac.rx_data.port);
                         break;
+                    case PORT_DN_SET_TX_PERIOD:
+                        if(loramac.rx_data.payload_len == sizeof(tx_period)) {
+                            tx_period=*((uint16_t*)loramac.rx_data.payload);
+                            DEBUG("Data received: tx_period=%d, port: %d\n",
+                                tx_period, loramac.rx_data.port);
+                        } else {
+                            DEBUG("Data received: bad size for tx_period, port: %d\n",
+                                 loramac.rx_data.port);
+                        }
+                        break;
                     case PORT_DN_EPOCH:
                         if(loramac.rx_data.payload_len == sizeof(epoch)) {
                             epoch=*((uint32_t*)loramac.rx_data.payload);
@@ -187,16 +197,9 @@ static void *receiver(void *arg)
                                  loramac.rx_data.port);
                         }
                         break;
-                    case PORT_DN_SET_TX_PERIOD:
-                        if(loramac.rx_data.payload_len == sizeof(tx_period)) {
-                            tx_period=*((uint16_t*)loramac.rx_data.payload);
-                            DEBUG("Data received: tx_period=%d, port: %d\n",
-                                tx_period, loramac.rx_data.port);
-                        } else {
-                            DEBUG("Data received: bad size for tx_period, port: %d\n",
-                                 loramac.rx_data.port);
-                        }
-                        break;
+                    case APP_CLOCK_PORT:
+                    	process_app_clock(&loramac);
+                    	break;
                     default:
                         DEBUG("Data received: ");
                         printf_ba(loramac.rx_data.payload, loramac.rx_data.payload_len);
