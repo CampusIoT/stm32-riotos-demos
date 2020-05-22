@@ -22,6 +22,8 @@ Drivers:
 
 ## Build and flash
 
+Connect the X1 and X2 connectors according to the wiring despicted in the annexes.
+
 By default, the DevEUI, the AppEUI and the AppKey are forged using the CPU ID of the MCU. However, you can set the DevEUI, the AppEUI and the AppKey of the LoRaWAN endpoint into the `main.c`.
 
 Optional : Configure the following parameters into the program file `main.c` : `FIRST_TX_PERIOD`, `TX_PERIOD`, `DR_INIT`, `ADR_ON`, `DEBUG_ON` and `SECRET`.
@@ -142,9 +144,30 @@ Received ACK from network
 * https://github.com/CampusIoT/tutorial/tree/master/riotos
 * https://github.com/CampusIoT/tutorial/tree/master/im880a
 
+
+## Annexes
+
+### Connectors
+
+![Connector X1](https://github.com/CampusIoT/tutorial/blob/master/im880a/figs/CH340G-to-X2.png)
+
+Connector X1
+
+![Connector X2](https://raw.githubusercontent.com/CampusIoT/tutorial/master/im880a/figs/JTAG-to-X1.png)
+
+Connector X2
+
+> Note: if you do not have an ST-Link v2 flasher, you can use the ST-Link part of a Nucleo board and connect the first 5 pins of the [CN4 SWD connector](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf) to the X1 connector of the IMST im880 board:
+
+	Pin 1: VDD_TARGET (VDD from application) Pin 15 X1
+	Pin 2: SWCLK (clock) Pin 1 X1
+	Pin 3: GND (ground) Pin 16 X1
+	Pin 4: SWDIO (SWD data input/output) Pin 2 X1
+	Pin 5: NRST (RESET of target STM32) Pin 5 X1
+
 ## TODO
 * Multiple data (temperature) per Tx (configure TX Period and Sample into the same downlink message)
 * Clock Sync https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100
-* Add [DS1307 RTC Clock](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)
+* Add [DS1307 RTC Clock](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf) [driver](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds1307)
 * Add [DS3234 Extremely Accurate SPI Bus RTC with Integrated Crystal and SRAM](https://datasheets.maximintegrated.com/en/ds/DS3234.pdf)
 * Add [DS18B20 1-Wire temperature stainless probe](https://github.com/RIOT-OS/RIOT/blob/master/tests/driver_ds18)

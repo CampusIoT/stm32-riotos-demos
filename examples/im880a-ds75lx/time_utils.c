@@ -19,7 +19,9 @@ const uint8_t _ytab[2][12] = {
         };
 
 #define YEAR0           1900                    /* the first year */
-#define EPOCH_YR        1970            /* EPOCH = Jan 1 1970 00:00:00 */
+#define EPOCH_YR        1970            		/* EPOCH = Jan 1 1970 00:00:00 */
+#define GPS_YR        	1980            		/* GPS = Jan 1 1980 00:00:00 */
+
 #define SECS_DAY        (24L * 60L * 60L)
 #define LEAPYEAR(year)  (!((year) % 4) && (((year) % 100) || !((year) % 400)))
 #define YEARSIZE(year)  (LEAPYEAR(year) ? 366 : 365)
@@ -56,6 +58,8 @@ void epoch_to_time(struct tm *timep, const uint32_t epoch)
         timep->tm_mday = dayno + 1;
         timep->tm_isdst = 0;
 }
+
+// TODO add time_to_epoch https://code.woboq.org/userspace/glibc/time/mktime.c.html
 
 /*
  * print a tm struct

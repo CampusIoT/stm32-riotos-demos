@@ -2,6 +2,10 @@
  * app_clock.h
  * Implementation of LoRaWAN Application Layer Clock Synchronization v1.0.0 Specification
  * https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100
+ *
+ * LoRaWAN® Application Layer Clock Synchronization Specification, authored by the FUOTA Working Group of the
+ * LoRa Alliance® Technical Committee, proposes an application layer messaging package running over LoRaWAN®
+ * to synchronize the real-time clock of an end-device to the network’s GPS clock with second accuracy.
  */
 
 #ifndef APP_CLOCK_H_
@@ -29,18 +33,20 @@
 
 // 3.1 PackageVersionReq & Ans
 
-struct APP_CLOCK_PackageVersionAns {
+// No PackageVersionReq struct
+
+typedef struct  {
 	// PackageIdentifier uniquely identifies the package. For the “clock synchronization package”
 	// this identifier is 1.
 	unsigned int PackageIdentifier : 8;
 	// PackageVersion corresponds to the version of the package specification implemented by the
 	// end-device
 	unsigned int PackageVersion : 8;
-}__attribute__((packed));
+}__attribute__((packed)) APP_CLOCK_PackageVersionAns_t;
 
 // 3.2 AppTimeReq & Ans
 
-struct APP_CLOCK_AppTimeReq {
+typedef struct {
 	// DeviceTime is the current end-device clock and is expressed as the time in seconds
 	// since 180 00:00:00, Sunday 6th of January 1980 (start of the GPS epoch) modulo 2^32.
 	unsigned int DeviceTime : 32;
@@ -51,26 +57,26 @@ struct APP_CLOCK_AppTimeReq {
 	// the end-device clock is de-synchronized.
 	unsigned int AnsRequired :1;
 	unsigned int RFU :3;
-}__attribute__((packed));
+}__attribute__((packed)) APP_CLOCK_AppTimeReq_t;
 
-struct APP_CLOCK_AppTimeAns {
+typedef struct {
 	// TimeCorrection is a signed 32-bit integer, stipulating the time delta correction in seconds.
 	int TimeCorrection : 32;
 	unsigned int TokenAns :4;
 	unsigned int RFU :4;
 	// TokenReq is a 4 bits counter initially set to 0. TokenReq is incremented (modulo 16) each time the end-device receives and processes successfully an AppTimeAns message.
-}__attribute__((packed));
+}__attribute__((packed)) APP_CLOCK_AppTimeAns_t;
 
 
-struct APP_CLOCK_DeviceAppTimePeriodicityReq {
+typedef struct {
 	// Period encodes the periodicity of the AppTimeReq transmissions. The actual periodicity in
 	// seconds is 128.2𝑃𝑒𝑟𝑖𝑜𝑑 ±𝑟𝑎𝑛𝑑(30) where 𝑟𝑎𝑛𝑑(30) is a random integer in the +/-30sec
 	// range varying with each transmission.
 	unsigned int Period :4;
 	unsigned int RFU :4;
-}__attribute__((packed));
+}__attribute__((packed)) APP_CLOCK_DeviceAppTimePeriodicityReq_t;
 
-struct APP_CLOCK_DeviceAppTimePeriodicityAns {
+typedef struct {
 	// NotSupported bit is set to 1 if the end-device’s application does not accept a periodicity set
 	// by the application server and manages the clock synchronization process and periodicity
 	// itself.
@@ -79,19 +85,27 @@ struct APP_CLOCK_DeviceAppTimePeriodicityAns {
 	// the radio message.
 	unsigned int RFU :7;
 	unsigned int Time :32;
-}__attribute__((packed));
+}__attribute__((packed)) APP_CLOCK_DeviceAppTimePeriodicityAns_t;
 
-struct APP_CLOCK_ForceDeviceResyncReq {
-	// The end-device responds by sending up to
-	//  NbTransmissions AppTimeReq messages with the AnsRequired bit set to 0. The end-
-	// device stops re-transmissions of the AppTimeReq if a valid AppTimeAns is received. If the
-	// NbTransmissions field is 0, the command SHALL be silently discarded.
+typedef struct {
+	// The end-device responds by sending up to NbTransmissions AppTimeReq messages
+	// with the AnsRequired bit set to 0.
+	// The end-device stops re-transmissions of the AppTimeReq if a valid AppTimeAns is received.
+	// If the NbTransmissions field is 0, the command SHALL be silently discarded.
 	// The delay between consecutive transmissions of the AppTimeReq is application specific.
 	unsigned int NbTransmissions :3;
 	unsigned int RFU :5;
-}__attribute__((packed));
+}__attribute__((packed)) APP_CLOCK_ForceDeviceResyncReq_t;
 
-extern uint8_t process_app_clock(semtech_loramac_t *loramac);
 
+#define APP_CLOCK_OK							(int8_t)0
+#define APP_CLOCK_ERROR_OVERFLOW				(int8_t)-1
+#define APP_CLOCK_NOT_IMPLEMENTED				(int8_t)-2
+#define APP_CLOCK_UNKNOWN_CID					(int8_t)-3
+
+
+extern int8_t app_clock_process_downlink(semtech_loramac_t *loramac);
+
+extern int8_t app_clock_send_app_time_req(semtech_loramac_t *loramac);
 
 #endif /* APP_CLOCK_H_ */

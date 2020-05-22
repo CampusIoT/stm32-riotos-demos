@@ -198,7 +198,7 @@ static void *receiver(void *arg)
                         }
                         break;
                     case APP_CLOCK_PORT:
-                    	process_app_clock(&loramac);
+                    	app_clock_process_downlink(&loramac);
                     	break;
                     default:
                         DEBUG("Data received: ");
