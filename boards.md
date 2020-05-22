@@ -39,6 +39,7 @@ Available in fabMSTIC
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
 | [NUCLEO-F301K8](https://www.st.com/resource/en/user_manual/dm00231744-stm32-nucleo32-boards-mb1180-stmicroelectronics.pdf) | TBC | TBC | TBD | TBD | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f303k8)  | TBC | TBC |
 | [NUCLEO-F303K8](https://www.st.com/resource/en/user_manual/dm00231744-stm32-nucleo32-boards-mb1180-stmicroelectronics.pdf) | TBC | TBC | TBD | TBD | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f303k8)  | TBC | TBC |
+| [NUCLEO-F042K6](https://www.st.com/en/evaluation-tools/nucleo-f042k6.html) | 1 | TBC | USB | None | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f042k6)  | TBC | TBC |
 
 
 
