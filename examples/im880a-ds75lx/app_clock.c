@@ -40,7 +40,7 @@ static unsigned int TokenReq = 0;
 // TODO static unsigned int AnsRequired = 1;
 
 
-int8_t process_app_clock(semtech_loramac_t *loramac) {
+int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     //uint8_t fPort = loramac->rx_data.port;
 
@@ -63,6 +63,7 @@ int8_t process_app_clock(semtech_loramac_t *loramac) {
     			APP_CLOCK_PackageVersionAns_t pva;
     			pva.PackageIdentifier = 1;
     			pva.PackageVersion = 1;
+    			(void)pva;
 
     			// should be added to the sending buffer
 
