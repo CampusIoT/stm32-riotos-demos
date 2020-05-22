@@ -39,6 +39,8 @@ static unsigned int TokenReq = 0;
 // the end-device clock is de-synchronized.
 // TODO static unsigned int AnsRequired = 1;
 
+static uint8_t sent_buffer[64];
+static uint32_t sent_buffer_cursor = 0;
 
 int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
@@ -52,6 +54,8 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     int8_t error = APP_CLOCK_OK;
 
+    sent_buffer_cursor = 0;
+
     while(idx < len  && (error == APP_CLOCK_OK)) {
     	uint8_t cid = payload[idx];
     	switch(cid) {
@@ -60,10 +64,12 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     			// TODO
 
-    			APP_CLOCK_PackageVersionAns_t pva;
-    			pva.PackageIdentifier = 1;
-    			pva.PackageVersion = 1;
-    			(void)pva;
+    			sent_buffer[sent_buffer_cursor] = APP_CLOCK_CID_PackageVersionAns;
+    			APP_CLOCK_PackageVersionAns_t *pva  = (APP_CLOCK_PackageVersionAns_t*)(sent_buffer + (1 + sent_buffer_cursor));
+    			pva->PackageIdentifier = 1;
+    			pva->PackageVersion = 1;
+
+    			sent_buffer_cursor += (1 + sizeof(APP_CLOCK_PackageVersionAns_t));
 
     			// should be added to the sending buffer
 
