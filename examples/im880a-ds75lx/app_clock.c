@@ -13,6 +13,7 @@
 
 #include "xtimer.h"
 #include <time.h>
+#include <stdbool.h>
 
 #include "debug.h"
 #include "net/loramac.h"
@@ -39,6 +40,13 @@ static unsigned int TokenReq = 0;
 // the end-device clock is de-synchronized.
 // TODO static unsigned int AnsRequired = 1;
 
+
+// Period encodes the periodicity of the AppTimeReq transmissions. The actual periodicity in
+// seconds is 128.2𝑃𝑒𝑟𝑖𝑜𝑑 ±𝑟𝑎𝑛𝑑(30) where 𝑟𝑎𝑛𝑑(30) is a random integer in the +/-30sec
+// range varying with each transmission.
+static bool isPeriodDefined = false;
+static unsigned int Period = 0;
+
 static uint8_t sent_buffer[64];
 static uint32_t sent_buffer_cursor = 0;
 
@@ -62,20 +70,13 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     	case APP_CLOCK_CID_PackageVersionReq:
     		if(idx + 1 + 0 <= len) {
 
-    			// TODO
-
     			sent_buffer[sent_buffer_cursor] = APP_CLOCK_CID_PackageVersionAns;
     			APP_CLOCK_PackageVersionAns_t *pva  = (APP_CLOCK_PackageVersionAns_t*)(sent_buffer + (1 + sent_buffer_cursor));
     			pva->PackageIdentifier = 1;
     			pva->PackageVersion = 1;
 
     			sent_buffer_cursor += (1 + sizeof(APP_CLOCK_PackageVersionAns_t));
-
-    			// should be added to the sending buffer
-
-    			error = APP_CLOCK_NOT_IMPLEMENTED;
     			idx += 1;
-    	        DEBUG("APP_CLOCK_CID_PackageVersionReq, error=%d\n", error);
     		} else {
     			error = APP_CLOCK_ERROR_OVERFLOW;
     	        DEBUG("APP_CLOCK_CID_PackageVersionReq, error=%d\n", error);
@@ -84,13 +85,18 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     	case APP_CLOCK_CID_DeviceAppTimePeriodicityReq:
     		if(idx + 1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityReq_t) <= len) {
+    			APP_CLOCK_DeviceAppTimePeriodicityReq_t* datpr = (APP_CLOCK_DeviceAppTimePeriodicityReq_t*) (payload + (idx + 1));
 
+    			isPeriodDefined = true;
+    			Period = datpr->Period;
 
-    			// TODO
+    			sent_buffer[sent_buffer_cursor] = APP_CLOCK_CID_DeviceAppTimePeriodicityAns;
+    			APP_CLOCK_DeviceAppTimePeriodicityAns_t *datpa  = (APP_CLOCK_DeviceAppTimePeriodicityAns_t*)(sent_buffer + (1 + sent_buffer_cursor));
+    			datpa->NotSupported = 1;
+    			datpa->Time = 0; // TODO 1/1/1980
 
+    			sent_buffer_cursor += (1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityAns_t));
     			idx += (1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityReq_t));
-    			error = APP_CLOCK_NOT_IMPLEMENTED;
-    	        DEBUG("APP_CLOCK_CID_DeviceAppTimePeriodicityReq, error=%d\n", error);
     		} else {
     			error = APP_CLOCK_ERROR_OVERFLOW;
     	        DEBUG("APP_CLOCK_CID_DeviceAppTimePeriodicityReq, error=%d\n", error);
@@ -107,7 +113,6 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 	    	        DEBUG("APP_CLOCK_CID_AppTimeAns, error=%d\n", error);
 	    	        break;
 				}
-
 
 				int TimeCorrection = ata->TimeCorrection;
 				(void)TimeCorrection;
@@ -129,6 +134,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 		        TokenReq++; TokenReq %= 16;
 
     			idx += (1 + sizeof(APP_CLOCK_AppTimeAns_t));
+
     			error = APP_CLOCK_NOT_IMPLEMENTED;
     	        DEBUG("APP_CLOCK_CID_AppTimeAns, error=%d\n", error);
     		} else {
