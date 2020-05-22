@@ -107,7 +107,7 @@ Available in fabMSTIC
 | [X-NUCLEO-IHM01A1](https://www.st.com/en/ecosystems/x-nucleo-ihm01a1.html) | 7 | None | Stepper motor driver ([L6474](https://www.st.com/content/st_com/en/products/motor-drivers/stepper-motor-drivers/l6474.html)) | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IDB04A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-idb04a1.html) | 9 | BALF-NRG-01D3 (BLE) | None | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-NFC01A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-nfc01a1.html) | 2 | M24SR64-Y Dynamic NFC/RFID tag IC | None | RiotOS: TBD, Stm32duino: TBD | TBC |
-| SHIELD-M24SR-ADV | 3 | NFC | TBC | TBC | TBC |
+| SHIELD-M24SR-ADV | 3 | NFC | TBC | [Stm32duino](https://github.com/stm32duino/X-NUCLEO-NFC01A1) | TBC |
 | STEVAL-MK1062V2 | 2 | TBC | Internial module | TBC | TBC |
 | X-NUCLEO-IKS01A1 | 2 | TBC | MEMS | TBC | TBC |
 | X-NUCLEO-IKP01A1 | 1 | TBC | Gestyre, proximity, ALS | TBC | TBC |
