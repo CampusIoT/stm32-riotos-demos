@@ -136,7 +136,7 @@ static void sender(void)
 
         if (ret != SEMTECH_LORAMAC_TX_DONE)
         {
-            DEBUG("Cannot send LPP payload: ret code: %d (%s)\n", ret, semtech_loramac_err_message(ret));
+            DEBUG("Cannot send LPP payload: ret code: %d (%s)\n", ret, loramac_utils_err_message(ret));
         }
 
         /* clear buffer once done */
@@ -222,9 +222,7 @@ static void *receiver(void *arg)
 
 int main(void)
 {
-    /* read RTC */
-    rtc_get_time(&current_time);
-    print_time("Clock value is now ", &current_time);
+    app_clock_print_rtc();
 
     /* initialize the sensors */
     init_sensors();
@@ -238,7 +236,7 @@ int main(void)
 #ifdef FORGE_DEVEUI_APPEUI_APPKEY
     /* forge the deveui, appeui and appkey of the endpoint */
     fmt_hex_bytes(secret, SECRET);
-    loramac_forge_deveui(deveui,appeui,appkey,secret);
+    loramac_utils_forge_euis_and_key(deveui,appeui,appkey,secret);
     DEBUG("Secret:"); printf_ba(secret,LORAMAC_APPKEY_LEN); DEBUG("\n");
 #else
     /* Convert identifiers and application key */
@@ -256,7 +254,7 @@ int main(void)
     semtech_loramac_set_appkey(&loramac, appkey);
 
     /* start the OTAA join procedure (and retries in required) */
-    /*uint8_t joinRes = */ loramac_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
+    /*uint8_t joinRes = */ loramac_utils_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
 
     /* start the receiver thread */
     thread_create(_receiver_stack, sizeof(_receiver_stack),

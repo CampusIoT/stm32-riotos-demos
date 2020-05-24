@@ -13,17 +13,19 @@
 
 #include "xtimer.h"
 #include <time.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 
 #include "debug.h"
 #include "net/loramac.h"
 #include "semtech_loramac.h"
-#include "time_utils.h"
+
+#include "periph_conf.h"
 #include "periph/rtc.h"
 
-//static uint32_t epoch = 0;
-//static bool epoch_set = false;
-//static struct tm current_time;
+#include "time_utils.h"
+
+// 1972 and 1976 have 366 days
+#define DELTA_EPOCH_GPS ((365*8 + 366*2)*(24*60*60))
 
 // The end-device responds by sending up to NbTransmissions AppTimeReq messages
 // with the AnsRequired bit set to 0.
@@ -40,7 +42,6 @@ static unsigned int TokenReq = 0;
 // the end-device clock is de-synchronized.
 // TODO static unsigned int AnsRequired = 1;
 
-
 // Period encodes the periodicity of the AppTimeReq transmissions. The actual periodicity in
 // seconds is 128.2𝑃𝑒𝑟𝑖𝑜𝑑 ±𝑟𝑎𝑛𝑑(30) where 𝑟𝑎𝑛𝑑(30) is a random integer in the +/-30sec
 // range varying with each transmission.
@@ -49,6 +50,21 @@ static unsigned int Period = 0;
 
 static uint8_t sent_buffer[64];
 static uint32_t sent_buffer_cursor = 0;
+
+static time_t lastTimeCorrection = 0; // 01/01/1970
+
+void app_clock_print_rtc(void) {
+	/* read RTC */
+	struct tm current_time;
+	rtc_get_time(&current_time);
+	print_time("Current RTC time : ", &current_time);
+	struct tm lastTimeCorrectionTime = *localtime(&lastTimeCorrection);
+	if(lastTimeCorrection == 0) {
+		DEBUG("Last correction  : never");
+	} else {
+		print_time("Last correction  : ", &lastTimeCorrectionTime);
+	}
+}
 
 int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
@@ -92,8 +108,16 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     			sent_buffer[sent_buffer_cursor] = APP_CLOCK_CID_DeviceAppTimePeriodicityAns;
     			APP_CLOCK_DeviceAppTimePeriodicityAns_t *datpa  = (APP_CLOCK_DeviceAppTimePeriodicityAns_t*)(sent_buffer + (1 + sent_buffer_cursor));
-    			datpa->NotSupported = 1;
-    			datpa->Time = 0; // TODO 1/1/1980
+    			datpa->NotSupported = 0; // The endpoint is not supporting periodicity currently
+
+			    struct tm current_time;
+		        // Read the RTC current time
+			    rtc_get_time(&current_time);
+		        print_time("Current time: ", &current_time);
+		        time_t timeSinceEpoch = mktime(&current_time);
+		        // Substract number of seconds between 1/1/1980 and 1/1/1970
+		        timeSinceEpoch -= DELTA_EPOCH_GPS;
+    			datpa->Time = (unsigned int) timeSinceEpoch;
 
     			sent_buffer_cursor += (1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityAns_t));
     			idx += (1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityReq_t));
@@ -114,21 +138,17 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 	    	        break;
 				}
 
-				int TimeCorrection = ata->TimeCorrection;
-				(void)TimeCorrection;
-
-    			// TODO
-				/*
-		        struct tm new_time;
-
-		        epoch_to_time(&new_time, epoch);
-
-		        rtc_set_time(&new_time);
-
-		        print_time("Clock value is set to ", &new_time);
-
-		        epoch_set = true;
-				*/
+			    struct tm current_time;
+		        // Read the RTC current time
+			    rtc_get_time(&current_time);
+		        print_time("Current time    : ", &current_time);
+		        time_t timeSinceEpoch = mktime(&current_time);
+		        // Apply correction
+		        timeSinceEpoch += ata->TimeCorrection;
+		        DEBUG(     "Time Correction : %d", ata->TimeCorrection);
+		        current_time = *localtime(&timeSinceEpoch);
+		        lastTimeCorrection = mktime(&current_time);
+		        print_time("RTC time fixed  : ", &current_time);
 
 		        // increment TokenReq
 		        TokenReq++; TokenReq %= 16;

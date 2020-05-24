@@ -103,6 +103,7 @@ typedef struct {
 #define APP_CLOCK_NOT_IMPLEMENTED				(int8_t)-2
 #define APP_CLOCK_UNKNOWN_CID					(int8_t)-3
 
+extern void app_clock_print_rtc(void);
 
 extern int8_t app_clock_process_downlink(semtech_loramac_t *loramac);
 
