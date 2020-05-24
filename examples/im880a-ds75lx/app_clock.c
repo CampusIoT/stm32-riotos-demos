@@ -133,7 +133,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
 				unsigned int TokenAns = ata->TokenAns;
 				if(TokenAns != TokenReq) {
-	    			error = -1;
+	    			error = APP_CLOCK_BAD_TOKEN;
 	    	        DEBUG("APP_CLOCK_CID_AppTimeAns, error=%d\n", error);
 	    	        break;
 				}
@@ -154,9 +154,6 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 		        TokenReq++; TokenReq %= 16;
 
     			idx += (1 + sizeof(APP_CLOCK_AppTimeAns_t));
-
-    			error = APP_CLOCK_NOT_IMPLEMENTED;
-    	        DEBUG("APP_CLOCK_CID_AppTimeAns, error=%d\n", error);
     		} else {
     			error = APP_CLOCK_ERROR_OVERFLOW;
     	        DEBUG("APP_CLOCK_CID_AppTimeAns, error=%d\n", error);
