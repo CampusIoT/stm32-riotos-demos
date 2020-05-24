@@ -14,6 +14,9 @@
 #include <inttypes.h>
 #include "semtech_loramac.h"
 
+// Comment the following define for removing experimental CID
+#define EXPERIMENTAL
+
 #define APP_CLOCK_PORT								(uint8_t) 202  // Application Layer Clock
 
 // Server : Used by the AS to request the package version implemented by the end-device
@@ -31,6 +34,10 @@
 // Server: Used by the application server to the end-device to trigger a clock resynchronization
 #define APP_CLOCK_CID_ForceDeviceResyncReq						(uint8_t)0x03
 
+#ifdef EXPERIMENTAL
+// Server: (eXperimental) Used by the application server to the end-device to set the endpoint clock
+#define X_APP_CLOCK_CID_AppTimeSetReq							(uint8_t)0xFE
+#endif
 // 3.1 PackageVersionReq & Ans
 
 // No PackageVersionReq struct
@@ -70,7 +77,7 @@ typedef struct {
 
 typedef struct {
 	// Period encodes the periodicity of the AppTimeReq transmissions. The actual periodicity in
-	// seconds is 128.2𝑃𝑒𝑟𝑖𝑜𝑑 ±𝑟𝑎𝑛𝑑(30) where 𝑟𝑎𝑛𝑑(30) is a random integer in the +/-30sec
+	// seconds is 128*2^𝑃𝑒𝑟𝑖𝑜𝑑 ±𝑟𝑎𝑛𝑑(30) where 𝑟𝑎𝑛𝑑(30) is a random integer in the +/-30sec
 	// range varying with each transmission.
 	unsigned int Period :4;
 	unsigned int RFU :4;
@@ -97,6 +104,13 @@ typedef struct {
 	unsigned int RFU :5;
 }__attribute__((packed)) APP_CLOCK_ForceDeviceResyncReq_t;
 
+#ifdef EXPERIMENTAL
+typedef struct {
+	// TimeToSet is the time for setting the end-device clock and is expressed as the time in seconds
+	// since 180 00:00:00, Sunday 6th of January 1980 (start of the GPS epoch) modulo 2^32.
+	unsigned int TimeToSet : 32;
+}__attribute__((packed)) X_APP_CLOCK_AppTimeSetReq_t;
+#endif
 
 #define APP_CLOCK_OK							(int8_t)0
 #define APP_CLOCK_ERROR_OVERFLOW				(int8_t)-1

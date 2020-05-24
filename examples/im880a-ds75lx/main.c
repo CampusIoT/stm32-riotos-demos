@@ -54,15 +54,14 @@ static cayenne_lpp_t lpp;
 #define DR_INIT                         LORAMAC_DR_5
 #define ADR_ON                          true
 
-#define FIRST_TX_PERIOD                 120 // First Tx period 2 minutes
-#define TX_PERIOD                       300 // Tx period 5 minutes
+#define FIRST_TX_PERIOD                 20 // 120 // First Tx period 2 minutes
+#define TX_PERIOD                       30 // 300 // Tx period 5 minutes
 
 #define PORT_UP_DATA                    1
 #define PORT_UP_GET_EPOCH               2
 #define PORT_UP_ERROR                   99
 
 #define PORT_DN_TEXT                    1
-#define PORT_DN_EPOCH                   2
 #define PORT_DN_SET_TX_PERIOD           3
 
 /* Implement the receiver thread */
@@ -78,10 +77,6 @@ static uint8_t appkey[LORAMAC_APPKEY_LEN];
 
 static msg_t _receiver_queue[RECEIVER_MSG_QUEUE];
 static char _receiver_stack[THREAD_STACKSIZE_DEFAULT];
-
-static uint32_t epoch = 0;
-static bool epoch_set = false;
-static struct tm current_time;
 
 static uint16_t tx_period = TX_PERIOD;
 
@@ -158,8 +153,7 @@ static void *receiver(void *arg)
 
     (void)arg;
     while (1) {
-        rtc_get_time(&current_time);
-        print_time("Clock value is now ", &current_time);
+        app_clock_print_rtc();
 
         /* blocks until something is received */
         switch (semtech_loramac_recv(&loramac)) {
@@ -178,22 +172,6 @@ static void *receiver(void *arg)
                                 tx_period, loramac.rx_data.port);
                         } else {
                             DEBUG("Data received: bad size for tx_period, port: %d\n",
-                                 loramac.rx_data.port);
-                        }
-                        break;
-                    case PORT_DN_EPOCH:
-                        if(loramac.rx_data.payload_len == sizeof(epoch)) {
-                            epoch=*((uint32_t*)loramac.rx_data.payload);
-                            DEBUG("Data received: epoch=%ld, port: %d\n",
-                                epoch, loramac.rx_data.port);
-                            struct tm new_time;
-                            epoch_to_time(&new_time, epoch);
-                            rtc_set_time(&new_time);
-                            print_time("Clock value is set to ", &new_time);
-                            epoch_set = true;
-
-                        } else {
-                            DEBUG("Data received: bad size for epoch, port: %d\n",
                                  loramac.rx_data.port);
                         }
                         break;
@@ -244,7 +222,7 @@ int main(void)
     fmt_hex_bytes(appeui, APPEUI);
     fmt_hex_bytes(appkey, APPKEY);
 #endif
-    DEBUG("DevEUI:"); printf_ba(deveui,LORAMAC_DEVEUI_LEN); DEBUG("\n");
+		DEBUG("DevEUI:"); printf_ba(deveui,LORAMAC_DEVEUI_LEN); DEBUG("\n");
     DEBUG("AppEUI:"); printf_ba(appeui,LORAMAC_APPEUI_LEN); DEBUG("\n");
     DEBUG("AppKey:"); printf_ba(appkey,LORAMAC_APPKEY_LEN); DEBUG("\n");
 

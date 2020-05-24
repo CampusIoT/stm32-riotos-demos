@@ -8,6 +8,8 @@
  * LoRa Alliance® Technical Committee, proposes an application layer messaging package running over LoRaWAN®
  * to synchronize the real-time clock of an end-device to the network’s GPS clock with second accuracy.
  */
+#define ENABLE_DEBUG (1)
+#include "debug.h"
 
 #include "app_clock.h"
 
@@ -15,16 +17,16 @@
 #include <time.h>
 //#include <stdbool.h>
 
-#include "debug.h"
 #include "net/loramac.h"
 #include "semtech_loramac.h"
+#include "loramac_utils.h"
 
 #include "periph_conf.h"
 #include "periph/rtc.h"
 
 #include "time_utils.h"
 
-// 1972 and 1976 have 366 days
+// 1972 and 1976 have 366 days (DELTA_EPOCH_GPS is 315532800 seconds)
 #define DELTA_EPOCH_GPS ((365*8 + 366*2)*(24*60*60))
 
 // The end-device responds by sending up to NbTransmissions AppTimeReq messages
@@ -60,13 +62,14 @@ void app_clock_print_rtc(void) {
 	print_time("Current RTC time : ", &current_time);
 	struct tm lastTimeCorrectionTime = *localtime(&lastTimeCorrection);
 	if(lastTimeCorrection == 0) {
-		DEBUG("Last correction  : never");
+		DEBUG("Last correction  : never\n");
 	} else {
 		print_time("Last correction  : ", &lastTimeCorrectionTime);
 	}
 }
 
 int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
+    DEBUG("app_clock_process_downlink\n");
 
     //uint8_t fPort = loramac->rx_data.port;
 
@@ -84,6 +87,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     	uint8_t cid = payload[idx];
     	switch(cid) {
     	case APP_CLOCK_CID_PackageVersionReq:
+    	    DEBUG("APP_CLOCK_CID_PackageVersionReq\n");
     		if(idx + 1 + 0 <= len) {
 
     			sent_buffer[sent_buffer_cursor] = APP_CLOCK_CID_PackageVersionAns;
@@ -100,6 +104,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     		break;
 
     	case APP_CLOCK_CID_DeviceAppTimePeriodicityReq:
+    	    DEBUG("APP_CLOCK_CID_DeviceAppTimePeriodicityReq\n");
     		if(idx + 1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityReq_t) <= len) {
     			APP_CLOCK_DeviceAppTimePeriodicityReq_t* datpr = (APP_CLOCK_DeviceAppTimePeriodicityReq_t*) (payload + (idx + 1));
 
@@ -115,7 +120,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 			    rtc_get_time(&current_time);
 		        print_time("Current time: ", &current_time);
 		        time_t timeSinceEpoch = mktime(&current_time);
-		        // Substract number of seconds between 1/1/1980 and 1/1/1970
+		        // substract number of seconds between 1/1/1980 and 1/1/1970
 		        timeSinceEpoch -= DELTA_EPOCH_GPS;
     			datpa->Time = (unsigned int) timeSinceEpoch;
 
@@ -128,6 +133,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     		break;
 
     	case APP_CLOCK_CID_AppTimeAns:
+    	    DEBUG("APP_CLOCK_CID_AppTimeAns\n");
     		if(idx + 1 + sizeof(APP_CLOCK_AppTimeAns_t) <= len) {
     			APP_CLOCK_AppTimeAns_t* ata = (APP_CLOCK_AppTimeAns_t*) (payload + (idx + 1));
 
@@ -145,8 +151,9 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 		        time_t timeSinceEpoch = mktime(&current_time);
 		        // Apply correction
 		        timeSinceEpoch += ata->TimeCorrection;
-		        DEBUG(     "Time Correction : %d", ata->TimeCorrection);
+		        DEBUG(     "Time Correction : %d\n", ata->TimeCorrection);
 		        current_time = *localtime(&timeSinceEpoch);
+			    rtc_set_time(&current_time);
 		        lastTimeCorrection = mktime(&current_time);
 		        print_time("RTC time fixed  : ", &current_time);
 
@@ -161,6 +168,7 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     		break;
 
     	case APP_CLOCK_CID_ForceDeviceResyncReq:
+    	    DEBUG("APP_CLOCK_CID_ForceDeviceResyncReq\n");
     		if(idx + 1 + sizeof(APP_CLOCK_ForceDeviceResyncReq_t) <= len) {
     			APP_CLOCK_ForceDeviceResyncReq_t* fdrr = (APP_CLOCK_ForceDeviceResyncReq_t*) (payload + (idx + 1));
     			unsigned int NbTransmissions = fdrr->NbTransmissions;
@@ -175,21 +183,46 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     	        DEBUG("APP_CLOCK_CID_ForceDeviceResyncReq, error=%d\n", error);
     		}
     		break;
+
+#ifdef EXPERIMENTAL
+    	case X_APP_CLOCK_CID_AppTimeSetReq:
+    	    DEBUG("X_APP_CLOCK_CID_AppTimeSetReq\n");
+    		if(idx + 1 + sizeof(X_APP_CLOCK_AppTimeSetReq_t) <= len) {
+    			X_APP_CLOCK_AppTimeSetReq_t* atsr = (X_APP_CLOCK_AppTimeSetReq_t*) (payload + (idx + 1));
+
+			    struct tm current_time;
+		        // Read the RTC current time
+			    rtc_get_time(&current_time);
+		        print_time("Current time    : ", &current_time);
+		        time_t TimeToSet = atsr->TimeToSet  + DELTA_EPOCH_GPS;
+		        current_time = *localtime(&TimeToSet);
+			    rtc_set_time(&current_time);
+		        lastTimeCorrection = mktime(&current_time);
+		        print_time("RTC time fixed  : ", &current_time);
+
+    			idx += (1 + sizeof(X_APP_CLOCK_AppTimeSetReq_t));
+    		} else {
+    			error = APP_CLOCK_ERROR_OVERFLOW;
+    	        DEBUG("X_APP_CLOCK_CID_AppTimeSetReq, error=%d\n", error);
+    		}
+    		break;
+#endif
+
     	default:
 			error = APP_CLOCK_UNKNOWN_CID;
 	        DEBUG("APP_CLOCK : Unknown CID, error=%d\n", error);
     		break;
     	}
     }
+    DEBUG("sent_buffer:"); printf_ba(sent_buffer,sent_buffer_cursor); DEBUG("\n");
 
     // TODO if NbTransmissions > 0, send an APP_CLOCK_CID_AppTimeReq
-
-    return APP_CLOCK_OK;
+    return error;
 
 }
 
-
 int8_t app_clock_send_app_time_req(semtech_loramac_t *loramac) {
+    DEBUG("app_clock_send_app_time_req\n");
 
 	(void)loramac;
 
