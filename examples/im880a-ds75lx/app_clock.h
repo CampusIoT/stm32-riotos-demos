@@ -102,6 +102,7 @@ typedef struct {
 #define APP_CLOCK_ERROR_OVERFLOW				(int8_t)-1
 #define APP_CLOCK_NOT_IMPLEMENTED				(int8_t)-2
 #define APP_CLOCK_UNKNOWN_CID					(int8_t)-3
+#define APP_CLOCK_BAD_TOKEN						(int8_t)-4
 
 extern void app_clock_print_rtc(void);
 
