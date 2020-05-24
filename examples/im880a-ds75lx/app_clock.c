@@ -31,6 +31,7 @@
 
 #include "net/loramac.h"
 #include "semtech_loramac.h"
+#include "loramac_utils.h"
 
 #include "periph_conf.h"
 #include "periph/rtc.h"
@@ -59,11 +60,13 @@ static unsigned int TokenReq = 0;
 static bool isPeriodDefined = false;
 static unsigned int Period = 0;
 
-static uint8_t sent_buffer[64];
+#define sent_buffer_SIZE ((1 + sizeof(APP_CLOCK_PackageVersionAns_t)) + (1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityAns_t)) + (1 + sizeof(APP_CLOCK_AppTimeReq_t)))
+
+static uint8_t sent_buffer[sent_buffer_SIZE];
+
 static uint32_t sent_buffer_cursor = 0;
 
 static time_t lastTimeCorrection = 0; // 01/01/1970
-
 
 /*
  * print a tm struct
@@ -78,13 +81,6 @@ static void print_time(const char *label, const struct tm *time)
             time->tm_hour,
             time->tm_min,
             time->tm_sec);
-}
-
-static void printf_ba(const uint8_t* ba, size_t len) {
-	// TODO replace by fmt.h functions
-    for (unsigned int i = 0; i < len; i++) {
-        DEBUG("%02x", ba[i]);
-    }
 }
 
 void app_clock_print_rtc(void) {
@@ -115,11 +111,25 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     sent_buffer_cursor = 0;
 
+    bool contains_APP_CLOCK_CID_PackageVersionReq = false;
+    bool contains_APP_CLOCK_CID_DeviceAppTimePeriodicityReq = false;
+    bool contains_APP_CLOCK_CID_AppTimeAns = false;
+    bool contains_APP_CLOCK_CID_ForceDeviceResyncReq = false;
+#ifdef EXPERIMENTAL
+    bool contains_X_APP_CLOCK_CID_AppTimeSetReq = false;
+#endif
+
     while(idx < len  && (error == APP_CLOCK_OK)) {
     	uint8_t cid = payload[idx];
     	switch(cid) {
     	case APP_CLOCK_CID_PackageVersionReq:
     	    DEBUG("APP_CLOCK_CID_PackageVersionReq\n");
+    	    if(contains_APP_CLOCK_CID_PackageVersionReq) {
+    			error = APP_CLOCK_CID_ALREADY_PROCESS;
+    	        DEBUG("APP_CLOCK_CID_PackageVersionReq, error=%d\n", error);
+        		break;
+    	    }
+    	    contains_APP_CLOCK_CID_PackageVersionReq = true;
     		if(idx + 1 + 0 <= len) {
 
     			sent_buffer[sent_buffer_cursor] = APP_CLOCK_CID_PackageVersionAns;
@@ -137,6 +147,13 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     	case APP_CLOCK_CID_DeviceAppTimePeriodicityReq:
     	    DEBUG("APP_CLOCK_CID_DeviceAppTimePeriodicityReq\n");
+    	    if(contains_APP_CLOCK_CID_DeviceAppTimePeriodicityReq) {
+    			error = APP_CLOCK_CID_ALREADY_PROCESS;
+    	        DEBUG("APP_CLOCK_CID_DeviceAppTimePeriodicityReq, error=%d\n", error);
+        		break;
+    	    }
+    	    contains_APP_CLOCK_CID_DeviceAppTimePeriodicityReq = true;
+
     		if(idx + 1 + sizeof(APP_CLOCK_DeviceAppTimePeriodicityReq_t) <= len) {
     			APP_CLOCK_DeviceAppTimePeriodicityReq_t* datpr = (APP_CLOCK_DeviceAppTimePeriodicityReq_t*) (payload + (idx + 1));
 
@@ -166,6 +183,13 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     	case APP_CLOCK_CID_AppTimeAns:
     	    DEBUG("APP_CLOCK_CID_AppTimeAns\n");
+    	    if(contains_APP_CLOCK_CID_AppTimeAns) {
+    			error = APP_CLOCK_CID_ALREADY_PROCESS;
+    	        DEBUG("APP_CLOCK_CID_AppTimeAns, error=%d\n", error);
+        		break;
+    	    }
+    	    contains_APP_CLOCK_CID_AppTimeAns = true;
+
     		if(idx + 1 + sizeof(APP_CLOCK_AppTimeAns_t) <= len) {
     			APP_CLOCK_AppTimeAns_t* ata = (APP_CLOCK_AppTimeAns_t*) (payload + (idx + 1));
 
@@ -201,6 +225,13 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 
     	case APP_CLOCK_CID_ForceDeviceResyncReq:
     	    DEBUG("APP_CLOCK_CID_ForceDeviceResyncReq\n");
+    	    if(contains_APP_CLOCK_CID_ForceDeviceResyncReq) {
+    			error = APP_CLOCK_CID_ALREADY_PROCESS;
+    	        DEBUG("APP_CLOCK_CID_ForceDeviceResyncReq, error=%d\n", error);
+        		break;
+    	    }
+    	    contains_APP_CLOCK_CID_ForceDeviceResyncReq = true;
+
     		if(idx + 1 + sizeof(APP_CLOCK_ForceDeviceResyncReq_t) <= len) {
     			APP_CLOCK_ForceDeviceResyncReq_t* fdrr = (APP_CLOCK_ForceDeviceResyncReq_t*) (payload + (idx + 1));
     			unsigned int NbTransmissions = fdrr->NbTransmissions;
@@ -219,6 +250,13 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 #ifdef EXPERIMENTAL
     	case X_APP_CLOCK_CID_AppTimeSetReq:
     	    DEBUG("X_APP_CLOCK_CID_AppTimeSetReq\n");
+    	    if(contains_X_APP_CLOCK_CID_AppTimeSetReq) {
+    			error = APP_CLOCK_CID_ALREADY_PROCESS;
+    	        DEBUG("X_APP_CLOCK_CID_AppTimeSetReq, error=%d\n", error);
+        		break;
+    	    }
+    	    contains_X_APP_CLOCK_CID_AppTimeSetReq = true;
+
     		if(idx + 1 + sizeof(X_APP_CLOCK_AppTimeSetReq_t) <= len) {
     			X_APP_CLOCK_AppTimeSetReq_t* atsr = (X_APP_CLOCK_AppTimeSetReq_t*) (payload + (idx + 1));
 
@@ -248,7 +286,14 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
     }
     DEBUG("sent_buffer:"); printf_ba(sent_buffer,sent_buffer_cursor); DEBUG("\n");
 
+    if(error == APP_CLOCK_OK) {
+    	app_clock_send_buffer(loramac);
+    } else {
+    	sent_buffer_cursor = 0;
+    }
+
     // TODO if NbTransmissions > 0, send an APP_CLOCK_CID_AppTimeReq
+
     return error;
 
 }
@@ -256,12 +301,67 @@ int8_t app_clock_process_downlink(semtech_loramac_t *loramac) {
 int8_t app_clock_send_app_time_req(semtech_loramac_t *loramac) {
     DEBUG("app_clock_send_app_time_req\n");
 
-	(void)loramac;
+    uint8_t payload[1 + sizeof(APP_CLOCK_AppTimeReq_t)];
+    payload[0] = APP_CLOCK_CID_AppTimeReq;
 
-    int8_t error = APP_CLOCK_OK;
+    APP_CLOCK_AppTimeReq_t* atr = (APP_CLOCK_AppTimeReq_t*) (payload + 1);
+    atr->TokenReq = TokenReq;
+    atr->AnsRequired = 1;
 
-	error = APP_CLOCK_NOT_IMPLEMENTED;
-    DEBUG("app_clock_send_app_time_req, error=%d\n", error);
+    struct tm current_time;
+    // Read the RTC current time
+    rtc_get_time(&current_time);
+    print_time("Current time    : ", &current_time);
+    time_t deviceTime = mktime(&current_time) - DELTA_EPOCH_GPS;
+    atr->DeviceTime = (uint32_t) deviceTime;
+
+    // save the current fPort and set the APP_CLOCK_PORT
+    uint8_t current_fPort = semtech_loramac_get_tx_port(loramac);
+    semtech_loramac_set_tx_port(loramac, APP_CLOCK_PORT);
+
+    /* send the LoRaWAN message */
+    uint8_t ret = semtech_loramac_send(loramac, payload, 1 + sizeof(APP_CLOCK_AppTimeReq_t));
+
+    int8_t error;
+    if (ret != SEMTECH_LORAMAC_TX_DONE) {
+        DEBUG("Cannot send APP_CLOCK_CID_AppTimeReq payload: ret code: %d (%s)\n", ret, loramac_utils_err_message(ret));
+        error =  APP_CLOCK_TX_KO;
+    } else {
+    	error = APP_CLOCK_OK;
+    }
+
+    // restore the current fPort
+    semtech_loramac_set_tx_port(loramac, current_fPort);
+
+    return error;
+
+}
+
+int8_t app_clock_send_buffer(semtech_loramac_t *loramac) {
+    DEBUG("app_clock_send_buffer\n");
+
+	int8_t error = APP_CLOCK_OK;
+
+    if(sent_buffer_cursor != 0) {
+		// save the current fPort and set the APP_CLOCK_PORT
+		uint8_t current_fPort = semtech_loramac_get_tx_port(loramac);
+		semtech_loramac_set_tx_port(loramac, APP_CLOCK_PORT);
+
+		/* send the LoRaWAN message */
+		uint8_t ret = semtech_loramac_send(loramac, sent_buffer, sent_buffer_cursor);
+
+		if (ret != SEMTECH_LORAMAC_TX_DONE) {
+			DEBUG("Cannot send buffer : ret code: %d (%s)\n", ret, loramac_utils_err_message(ret));
+			error =  APP_CLOCK_TX_KO;
+		} else {
+			error = APP_CLOCK_OK;
+		}
+
+		// restore the current fPort
+		semtech_loramac_set_tx_port(loramac, current_fPort);
+		// reset the buffer
+		sent_buffer_cursor = 0;
+    }
 
     return error;
 }

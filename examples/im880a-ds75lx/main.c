@@ -120,6 +120,12 @@ static void read_sensors(cayenne_lpp_t* lpp){
 
 static void sender(void)
 {
+
+	// request for clock synchronization
+	app_clock_send_app_time_req(&loramac);
+
+    xtimer_sleep(tx_period);
+
     while (1)
     {
         /* read the sensors values and add them to lpp */

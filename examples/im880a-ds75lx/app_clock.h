@@ -129,11 +129,15 @@ typedef struct {
 #define APP_CLOCK_NOT_IMPLEMENTED				(int8_t)-2
 #define APP_CLOCK_UNKNOWN_CID					(int8_t)-3
 #define APP_CLOCK_BAD_TOKEN						(int8_t)-4
+#define APP_CLOCK_CID_ALREADY_PROCESS			(int8_t)-5
+#define APP_CLOCK_TX_KO							(int8_t)-6
 
 extern void app_clock_print_rtc(void);
 
 extern int8_t app_clock_process_downlink(semtech_loramac_t *loramac);
 
 extern int8_t app_clock_send_app_time_req(semtech_loramac_t *loramac);
+
+extern int8_t app_clock_send_buffer(semtech_loramac_t *loramac);
 
 #endif /* APP_CLOCK_H_ */
