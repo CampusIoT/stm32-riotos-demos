@@ -31,7 +31,6 @@
 
 #include "net/loramac.h"
 #include "semtech_loramac.h"
-#include "loramac_utils.h"
 
 #include "periph_conf.h"
 #include "periph/rtc.h"
@@ -70,7 +69,7 @@ static time_t lastTimeCorrection = 0; // 01/01/1970
  * print a tm struct
  */
 #define TM_YEAR_OFFSET      (1900)
-void print_time(const char *label, const struct tm *time)
+static void print_time(const char *label, const struct tm *time)
 {
     DEBUG("%s  %04d-%02d-%02d %02d:%02d:%02d\n", label,
             time->tm_year + TM_YEAR_OFFSET,
@@ -79,6 +78,13 @@ void print_time(const char *label, const struct tm *time)
             time->tm_hour,
             time->tm_min,
             time->tm_sec);
+}
+
+static void printf_ba(const uint8_t* ba, size_t len) {
+	// TODO replace by fmt.h functions
+    for (unsigned int i = 0; i < len; i++) {
+        DEBUG("%02x", ba[i]);
+    }
 }
 
 void app_clock_print_rtc(void) {
