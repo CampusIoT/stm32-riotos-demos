@@ -103,26 +103,6 @@ Data received: Hello CampusIoT !, port: 1
 Received ACK from network                                                       
 ```
 
-### Setting the realtime clock of the endpoint
-```bash
-PORT=2
-mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"5UKHXg=="}'
-```
-
-> The epoch is a unsigned 32 bit-long integer (big endian)
-
-The output on the console is:
-```bash
-...
-Received ACK from network                                                       
-Clock value is now   2000-01-01 00:00:36
-Sending LPP payload with : T: 22.50                                             
-Data received: epoch=1585922789, port: 2                                        
-Clock value is set to   2020-04-03 14:06:29                                     
-Clock value is now   2020-04-03 14:06:29                                        
-Received ACK from network                                                       
-```
-
 ### setting the tx period of the data
 
 ```bash
@@ -139,6 +119,30 @@ Sending LPP payload with : T: 22.75
 Data received: tx_period=60, port: 3                                            
 Received ACK from network                                                       
 ```
+
+### Setting the realtime clock of the endpoint
+```bash
+PORT=202
+PAYLOAD=FE0BF6FB4B
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"/gv2+0s="}'
+```
+
+> The time is the number of seconds since 01/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
+
+The output on the console is:
+```bash
+...
+Received ACK from network                                                                                 
+Current RTC time :   2020-05-24 15:03:09                                                                  
+Last correction  :   2020-05-24 15:00:49                                                                  
+Read temperature= 25.00                                                                                   
+app_clock_process_downlink                                                                                
+X_APP_CLOCK_CID_AppTimeSetReq                                                                             
+Current time    :   2020-05-24 15:03:44                                                                   
+RTC time fixed  :   2020-05-24 16:08:43                                                                   
+sent_buffer:                                                                                              
+```
+
 
 ## References
 * https://github.com/CampusIoT/tutorial/tree/master/riotos

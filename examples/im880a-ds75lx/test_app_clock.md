@@ -4,7 +4,7 @@
 https://lns.campusiot.imag.fr/console/applications/riotds75/devices/riotds75-9855
 
 Key app_clock
-NNSXS.XXXX.35NA2BCTHFX2LL3N4ZLN45ONXSQGUO3CPZCGWJEJP4AD47RX6M2A
+NNSXS.XXXXXXXXX.35NA2BCTHFX2LL3N4ZLN45ONXSQGUO3CPZCGWJEJP4AD47RX6M2A
 
 Pour MQTTS
 Username riotds75
@@ -48,6 +48,9 @@ Endpoint should answer
 
 GHIJKLMN = endpoind epoch since GPS (1/1/1980)
 
+Attention: DeviceTime est encodé en big-endian (LSBF)
+
+
 ## APP_CLOCK_CID_ForceDeviceResyncReq
 Server: Used by the application server to the end-device to trigger a clock resynchronization
 
@@ -64,7 +67,7 @@ Endpoint : Used by end-device to request clock correction
 Server : Conveys the clock timing correction
 
 
-Attention: Time et TimeCorrection sont encodés en big-endian (LSBF)
+Attention: DeviceTime et TimeCorrection sont encodés en big-endian (LSBF)
 
 1590332449 - (631160360 + ((365*8 + 366*2)*(24*60*60))) = 643639289
 

@@ -34,7 +34,6 @@
 #include "ds75lx.h"
 #include "ds75lx_params.h"
 
-#include "time_utils.h"
 #include "app_clock.h"
 
 /* Declare globally the loramac descriptor */

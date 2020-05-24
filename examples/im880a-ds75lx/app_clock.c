@@ -8,6 +8,19 @@
  * LoRa Alliance® Technical Committee, proposes an application layer messaging package running over LoRaWAN®
  * to synchronize the real-time clock of an end-device to the network’s GPS clock with second accuracy.
  */
+
+/**
+ * @ingroup     pkg_lorawan_app_clock
+ * @{
+ *
+ * @file
+ * @brief       Implementation of Implementation of LoRaWAN Application Layer Clock Synchronization v1.0.0 Specification.
+ *
+ * @author      Didier Donsez <didier.donsez@univ-grenoble-alpes.fr>
+ *
+ * @}
+ */
+
 #define ENABLE_DEBUG (1)
 #include "debug.h"
 
@@ -15,7 +28,6 @@
 
 #include "xtimer.h"
 #include <time.h>
-//#include <stdbool.h>
 
 #include "net/loramac.h"
 #include "semtech_loramac.h"
@@ -23,8 +35,6 @@
 
 #include "periph_conf.h"
 #include "periph/rtc.h"
-
-#include "time_utils.h"
 
 // 1972 and 1976 have 366 days (DELTA_EPOCH_GPS is 315532800 seconds)
 #define DELTA_EPOCH_GPS ((365*8 + 366*2)*(24*60*60))
@@ -54,6 +64,22 @@ static uint8_t sent_buffer[64];
 static uint32_t sent_buffer_cursor = 0;
 
 static time_t lastTimeCorrection = 0; // 01/01/1970
+
+
+/*
+ * print a tm struct
+ */
+#define TM_YEAR_OFFSET      (1900)
+void print_time(const char *label, const struct tm *time)
+{
+    DEBUG("%s  %04d-%02d-%02d %02d:%02d:%02d\n", label,
+            time->tm_year + TM_YEAR_OFFSET,
+            time->tm_mon + 1,
+            time->tm_mday,
+            time->tm_hour,
+            time->tm_min,
+            time->tm_sec);
+}
 
 void app_clock_print_rtc(void) {
 	/* read RTC */

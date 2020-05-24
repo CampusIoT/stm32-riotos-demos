@@ -8,6 +8,18 @@
  * to synchronize the real-time clock of an end-device to the network’s GPS clock with second accuracy.
  */
 
+/**
+ * @ingroup     pkg_lorawan_app_clock
+ * @{
+ *
+ * @file
+ * @brief       Implementation of Implementation of LoRaWAN Application Layer Clock Synchronization v1.0.0 Specification.
+ *
+ * @author      Didier Donsez <didier.donsez@univ-grenoble-alpes.fr>
+ *
+ * @}
+ */
+
 #ifndef APP_CLOCK_H_
 #define APP_CLOCK_H_
 
