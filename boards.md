@@ -16,13 +16,31 @@ Available in fabMSTIC
 | [32L0538DISCOVERY](https://www.st.com/en/evaluation-tools/32l0538discovery.html) | ~3 | [STM32L053C8T6](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-ultra-low-power-mcus/stm32l0-series/stm32l0x3/stm32l053c8.html) | None | linear touch sensor, touch keys, IDD current measurement, 2.04” E-paper display, NFC connector for PLUG-CR95HF-B board, LEDs, pushbuttons | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32l0538-disco) | TBC |
 | [STEVAL-STRKT01 LoRa® IoT tracker](https://www.st.com/en/evaluation-tools/32l0538discovery.html) | 0 | [STM32L072CZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l072cz.html) | CMWX1ZZABZ-091 LoRa® module (by Murata) | GNSS, HTS221, LPS22HB | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1) | TBC |
 | [32F429IDISCOVERY](https://www.st.com/en/evaluation-tools/32f429idiscovery.html) | 0 | [STM32F429](https://www.st.com/en/microcontrollers-microprocessors/stm32f429-439.html) | TBD | 2.4" QVGA TFT LCD, L3GD20, ST-MEMS motion sensor 3-axis digital output gyroscope,  | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32f429i-disc1) | TBC |
+| [P-L496G-CELL01](https://www.st.com/en/evaluation-tools/p-l496g-cell02.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
+| [STM32F7308-DK](https://www.st.com/en/microcontrollers-microprocessors/stm32f730r8.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
+| [STM32F779I-EVAL](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-eval-boards/stm32f769i-eval.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
+| [STM32H747I-EVAL](https://www.st.com/en/evaluation-tools/stm32h757i-eval.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
 
 [Full product selector](https://www.st.com/en/evaluation-tools/stm32-discovery-kits.html#products).
 
 ## Nucleo 32 boards
 
+    Nucleo Codification : NUCLEO-TXXXKY
+    TXXX        STM32 product line
+    K           STM32 package pin count (32 pins)
+    Y           STM32 Flash memory size:
+                    * 4 for 16 Kbytes
+                    * 6 for 32 Kbytes
+                    * 8 for 64 Kbytes
+                    * B for 128 Kbytes
+                    * C for 256 Kbytes
+
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
+| [NUCLEO-F301K8](https://www.st.com/resource/en/user_manual/dm00231744-stm32-nucleo32-boards-mb1180-stmicroelectronics.pdf) | TBC | TBC | TBD | TBD | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f303k8)  | TBC | TBC |
+| [NUCLEO-F303K8](https://www.st.com/resource/en/user_manual/dm00231744-stm32-nucleo32-boards-mb1180-stmicroelectronics.pdf) | TBC | TBC | TBD | TBD | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f303k8)  | TBC | TBC |
+| [NUCLEO-F042K6](https://www.st.com/en/evaluation-tools/nucleo-f042k6.html) | 1 | TBC | USB | None | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f042k6)  | TBC | TBC |
+
 
 
 ## Nucleo 64 boards
@@ -46,7 +64,7 @@ Available in fabMSTIC
 | Board         | Samples @ Fablab | MCU Model | Communication | Sensors | OS support | Fritzing | Demo |
 | ------------- | ---------------- | --------- | ------------- | ------- | ------------ | -------- | ---- |
 | [P-NUCLEO-WB55 Bluetooth™ 5 and 802.15.4 Nucleo Pack including USB dongle and Nucleo-68 with STM32WB55 MCUs](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html) | TBC | STM32WB55 | Wifi, BLE | Button | TBC | Part | TBC |
-| [NUCLEO-WL55JC1](https://blog.st.com/stm32wl/) | TBC | [STM32WLE5JC](https://www.st.com/en/microcontrollers-microprocessors/stm32wle5jc.html) | LoRa (SX1262) | Button | TBC | Part | TBC |
+| [NUCLEO-WL55JC1](https://blog.st.com/stm32wl/) | TBC | [STM32WLE5JC](https://www.st.com/en/microcontrollers-microprocessors/stm32wle5jc.html) | LoRa (SX1262) | Button | [Stm32Python](https://stm32python.gitlab.io/fr/) | [Part](https://gitlab.com/stm32python/fr/-/tree/master/_docs/Fritzing) | TBC |
 | [NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) | 3 | STM32F401RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-F411RE](https://www.st.com/en/evaluation-tools/nucleo-f411re.html) | 3 | STM32F411RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
 | [NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | 2 | STM32F446RE | None | Button | yes | [Part](https://github.com/fritzing/fritzing-parts/blob/master/core/STM32_Nucleo_board.fzp) | TBC |
@@ -89,7 +107,7 @@ Available in fabMSTIC
 | [X-NUCLEO-IHM01A1](https://www.st.com/en/ecosystems/x-nucleo-ihm01a1.html) | 7 | None | Stepper motor driver ([L6474](https://www.st.com/content/st_com/en/products/motor-drivers/stepper-motor-drivers/l6474.html)) | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IDB04A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-idb04a1.html) | 9 | BALF-NRG-01D3 (BLE) | None | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-NFC01A1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-connect-hw/x-nucleo-nfc01a1.html) | 2 | M24SR64-Y Dynamic NFC/RFID tag IC | None | RiotOS: TBD, Stm32duino: TBD | TBC |
-| SHIELD-M24SR-ADV | 3 | NFC | TBC | TBC | TBC |
+| SHIELD-M24SR-ADV | 3 | NFC | TBC | [Stm32duino](https://github.com/stm32duino/X-NUCLEO-NFC01A1), [MBed](https://os.mbed.com/teams/ST/code/NFC01A1_Demos/) | TBC |
 | STEVAL-MK1062V2 | 2 | TBC | Internial module | TBC | TBC |
 | X-NUCLEO-IKS01A1 | 2 | TBC | MEMS | TBC | TBC |
 | X-NUCLEO-IKP01A1 | 1 | TBC | Gestyre, proximity, ALS | TBC | TBC |
@@ -102,6 +120,9 @@ Available in fabMSTIC
 
 * [P-NUCLEO-LRWAN2](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/stm32-nucleo-expansion-boards/p-nucleo-lrwan2.html)  STM32 Nucleo pack LoRa™ HF band sensor and gateway : 3 exemplaires
 * [P-NUCLEO-LRWAN3](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan3.html) STM32 Nucleo pack LoRa™ LF band sensor and gateway : 1 exemplaire
+
+## Power monitoring
+* [STM X-NUCLEO-LPM01A Power Shield](https://www.st.com/en/evaluation-tools/x-nucleo-lpm01a.html). 2 boards available (Sylvain, Didier). [Tutorial](https://github.com/CampusIoT/tutorial/tree/master/x-nucleo-lpm01a)
 
 ## Arduino shields (Adafruit, Sparkfun ...)
 
@@ -143,4 +164,6 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [LIDAR-Lite v3](https://www.sparkfun.com/products/14032) | 1 | 5V | TBD | LiDar | TBC | TBC | TBC |
 | [SparkFun Air Quality Breakout - CCS811](https://www.sparkfun.com/products/14193) | 1 | 3.3V | I2C | VOC | TBC | TBC | TBC |
 | [SparkFun Particle Sensor Breakout - MAX30105](https://www.sparkfun.com/products/14045) | TBC | 5V | I2C | Particles | TBC | TBC | TBC |
-
+| [OneWire readers and iButtons](https://www.maximintegrated.com/en/products/ibutton/ibuttons/blue_dot.cfm) | TBC | 5V | 1Wire | TBC | TBC | TBC | TBC |
+| [Melexis Contact-less Infrared Sensor - MLX90614](https://www.melexis.com/en/product/mlx90614/digital-plug-play-infrared-thermometer-to-can) | TBC | 3V and 5V version | PWM output ? | Temperature | TBC | TBC | TBC |
+| [Omron Vibration Sensors D7S (High-precision Seismic Sensor)](https://omronfs.omron.com/en_US/ecb/products/pdf/en-d7s.pdf) | TBC | TBC | TBC| Vibration | TBC | TBC | [TBC](https://www.14core.com/wiring-d7s-seismic-earthquake-detection-mapping-intensity-vibration-sensor-on-microcontroller/) |
