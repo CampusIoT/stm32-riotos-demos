@@ -6,6 +6,14 @@
  * LoRaWAN® Application Layer Clock Synchronization Specification, authored by the FUOTA Working Group of the
  * LoRa Alliance® Technical Committee, proposes an application layer messaging package running over LoRaWAN®
  * to synchronize the real-time clock of an end-device to the network’s GPS clock with second accuracy.
+ *
+ * This package is useful for end-devices which do not have access to other accurate time source.
+ * An end-device using LoRaWAN 1.1 or above SHOULD use DeviceTimeReq MAC command instead of this package.
+ * ClassB end-devices have a more efficient way of synchronizing their clock, the classB network beacon. They
+ * SHOULD NOT use this package and directly use the beacon time information.
+ * End-devices with an accurate external clock source (e.g.: GPS) SHOULD use that clock source instead.
+ *
+ * Remark: Since GPS clock sources can be jammed or spoofed, this package can be used for secure time distribution.
  */
 
 /**
