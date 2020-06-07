@@ -2,7 +2,7 @@
 
 [B-L475E-IOT01A Discovery kit for IoT node](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html)'s demostrations with Stm32duino
 
-![b-l475e-iot01a](./images/b-l475e-iot01a.png)
+![b-l475e-iot01a](./images/b-l475e-iot01a.jpg)
 
 https://github.com/stm32duino/STM32Examples/tree/master/examples/Boards/STM32L475VG-DISCOVERY-IOT
 
