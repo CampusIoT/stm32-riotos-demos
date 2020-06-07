@@ -14,4 +14,8 @@ https://github.com/stm32duino/STM32Examples/tree/master/examples/Boards/STM32L47
 * [260-1260 hPa absolute digital output barometer (LPS22HB)](./lps22hb)
 * [Time-of-Flight and gesture-detection sensor (VL53L0X)](./vl53l0x)
 * [MQTT PubSub on WiFi access point](./mqtt)
-* [LoRaWAN transmission](./lorawan)
+* [LoRaWAN transmission with I-NUCLEO-LRWAN1](./lorawan)
+
+## Applications
+* https://github.com/AmieJoni/parois-rocheuses
+
