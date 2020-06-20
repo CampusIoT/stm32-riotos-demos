@@ -15,11 +15,14 @@ Board:
 
 By default, the DevEUI, the AppEUI and the AppKey are forged using the CPU ID of the MCU. However, you can set the DevEUI, the AppEUI and the AppKey of the LoRaWAN endpoint into the `main.c`.
 
-Optional : Configure the following parameters into the program file `main.c` : `FIRST_TX_PERIOD`, `TX_PERIOD`, `DR_INIT`, `ADR_ON`, `DEBUG_ON` and `SECRET`.
+> Optional : Configure the following parameters into the program file `main.c` : `FIRST_TX_PERIOD`, `TX_PERIOD`, `DR_INIT`, `ADR_ON`, `DEBUG_ON` and `SECRET`.
 
 Register the endpoint into a LoRaWAN network (public or private) using the DevEUI, the AppEUI and the AppKey
 
 Set the `DRIVER` variable for [SX1272MB2xAS/SX1272MB2DAS](https://os.mbed.com/components/SX1272MB2xAS/)
+
+> The default RF band (aka `REGION`) is `EU868`.
+
 ```bash
 export DRIVER=sx1272
 ```
@@ -38,7 +41,8 @@ make info-boards
 Build the firmware
 ```bash
 export RIOT_BASE=~/github/RIOT-OS/RIOT
-make BOARD=nucleo-f411re DRIVER=$DRIVER binfile
+export BOARD=nucleo-f411re
+make BOARD=$BOARD DRIVER=$DRIVER binfile
 ```
 
 Connect the board to the STLink and then flash the firmware
@@ -99,9 +103,35 @@ Data received: Hello CampusIoT !, port: 10
 Received ACK from network                                                       
 ```
 
+## Configuration for EU433 band
+
+The [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) shield can send and receive LoRa frames on `EU433` and `CN470` bands on the `ANT_LF` SMA antenna.
+
+Comment the following lines into the `$RIOT_BASE/pkg/semtech-loramac/Makefile.include` file.
+```makefile
+# LORA_REGION ?= EU868
+# CFLAGS += -DREGION_$(LORA_REGION)
+# CFLAGS += -DLORAMAC_ACTIVE_REGION=LORAMAC_REGION_$(LORA_REGION)
+```
+
+Set the variables for [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) and for `EU433` band (aka region).
+```bash
+export BOARD=nucleo-f411re
+export DRIVER=sx1276
+export REGION=EU433
+```
+
+Build the firmware
+```bash
+export RIOT_BASE=~/github/RIOT-OS/RIOT
+make BOARD=$BOARD DRIVER=$DRIVER REGION=$REGION binfile
+```
+
+You should have an EU433 gateway (such as [STMicroelectronics Nucleo LRWAN3](https://github.com/CampusIoT/tutorial/blob/master/p-nucleo-lrwan/README.md#d%C3%A9marrage-de-la-gateway-lrwan3-433-mhz)) connected to your LoRa Network server in order to manage the OTAA procedure.
+
+
 ## References
 * https://github.com/CampusIoT/tutorial/tree/master/riotos
-
 
 ## TODO
 * Read GPIO for the Grove connectors of [SX1272MB2xAS/SX1272MB2DAS](https://os.mbed.com/components/SX1272MB2xAS/)
