@@ -2,7 +2,7 @@
 
 The SX1272MB2xAS / SX1272MB2DAS / SX1276MB1xAS boards are evaluation boards from Semtech for evaluating and demonstrating LoRa and LoRaWAN communications on LF and HF bands (aka regions).
 
-![SX1272MB2xAS](images/sx1272mb2xas-pinout.jpg) ![SX1276MB1xAS](images/sx1276mb1xas-pinout.jpg)
+<img src="images/sx1272mb2xas-pinout.jpg" alt="SX1272MB2xAS" width="300px"> <img src="images/sx1276mb1xas-pinout.png" alt="SX1276MB1xAS" width="300px">
 
 The demonstration program reads a button press counter and sends it into an uplink message over a LoRaWAN network. The program prints the payload of the downlink messages. 
 
