@@ -2,10 +2,12 @@ APPLICATION=lorawan-nucleo
 
 BOARD ?= nucleo
 
-# Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
+# Default radio driver is Semtech SX1272 (sx1276 is the other driver). 
 DRIVER ?= sx1272
 
-# Default region is Europe and default band is 868MHz
+# Default region is Europe and default band is 868MHz.
+# sx1272 supports regions such as EU868, US915, CN779, AU915, AS923, KR920, IN865, RU864
+# sx1276 supports regions such as EU433, CN470, EU868, US915, CN779, AU915, AS923, KR920, IN865, RU864
 REGION ?= EU868
 
 USEMODULE += xtimer

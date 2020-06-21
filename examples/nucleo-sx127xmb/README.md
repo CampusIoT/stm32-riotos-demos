@@ -109,24 +109,18 @@ Received ACK from network
 
 The [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) shield can send and receive LoRa frames on `EU433` and `CN470` bands on the `ANT_LF` SMA antenna.
 
-Comment the following lines into the `$RIOT_BASE/pkg/semtech-loramac/Makefile.include` file.
-```makefile
-# LORA_REGION ?= EU868
-# CFLAGS += -DREGION_$(LORA_REGION)
-# CFLAGS += -DLORAMAC_ACTIVE_REGION=LORAMAC_REGION_$(LORA_REGION)
-```
-
 Set the variables for [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) and for `EU433` band (aka region).
 ```bash
 export BOARD=nucleo-f411re
 export DRIVER=sx1276
 export REGION=EU433
+export LORA_REGION=$REGION
 ```
 
 Build the firmware
 ```bash
 export RIOT_BASE=~/github/RIOT-OS/RIOT
-make BOARD=$BOARD DRIVER=$DRIVER REGION=$REGION binfile
+make binfile
 ```
 
 You should have an EU433 gateway (such as [STMicroelectronics Nucleo LRWAN3](https://github.com/CampusIoT/tutorial/blob/master/p-nucleo-lrwan/README.md#d%C3%A9marrage-de-la-gateway-lrwan3-433-mhz)) connected to your LoRa Network server in order to manage the OTAA procedure.
