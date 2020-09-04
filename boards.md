@@ -25,6 +25,8 @@ Available in fabMSTIC
 |    | STM32 F401 | 2 | TBC | TBD | TBC  | TBC | TBC |
 |    | STM32 F404 | 21 | TBC | TBD | TBC  | TBC | TBC |
 |    | STM32 F746 | 1 | TBC | TBD | TBC  | TBC | TBC |
+|    | [STEVAL-BCN002V1B BlueTile - Bluetooth LE enabled sensor node development kit](https://www.st.com/en/evaluation-tools/steval-bcn002v1b.html) | 1 | TBC | BE (BlueNRG-2) | LSM6DSO, LIS2MDL, VL53L1X, MP34DT05TR-A, LPS22HH, HTS221  | TBC | TBC |
+
 
 [Full product selector](https://www.st.com/en/evaluation-tools/stm32-discovery-kits.html#products).
 
