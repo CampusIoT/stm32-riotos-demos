@@ -146,12 +146,20 @@ https://www.chirpstack.io/application-server/use/fuota/
 
 ### Setting the realtime clock (RTC) of the endpoint
 ```bash
+
+DELTA_EPOCH_GPS=315964800
+EPOCH_GPS=$(($(date +%s) - $DELTA_EPOCH_GPS))
+v=$(printf "0x%02x\n" $EPOCH_GPS)
+v2=$(( (v<<8 & 0xff00ff00) | (v>>8 & 0xff00ff) ))
+v2=$(( (v2<<16 & 0xffff0000) | v2>>16 ))
+PAYLOAD=$(printf 'fe%08x\n' $v2)
+DATA=$(echo $PAYLOAD | xxd -r -p | base64)
+
 PORT=202
-PAYLOAD=FE0BF6FB4B
-mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"/gv2+0s="}'
+mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"'$DATA'"}'
 ```
 
-> The time is the number of seconds since 01/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
+> The time is the number of seconds since 06/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
 
 The output on the console is:
 ```
