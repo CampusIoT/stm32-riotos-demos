@@ -29,7 +29,6 @@ FEATURES_REQUIRED += periph_rtc
 
 USEMODULE += hashes
 
-
 DEVELHELP ?= 1
 
 RIOTBASE ?= ${RIOT_BASE}
