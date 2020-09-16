@@ -144,6 +144,8 @@ https://www.chirpstack.io/application-server/use/fuota/
 ...
 ```
 
+> TODO : APP_CLOCK_CID_ForceDeviceResyncReq (0x03) : force the end-device to trigger a clock resynchronization
+
 ### Setting the realtime clock (RTC) of the endpoint
 ```bash
 
