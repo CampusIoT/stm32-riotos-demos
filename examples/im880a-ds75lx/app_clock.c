@@ -45,7 +45,7 @@
 #include "periph_conf.h"
 #include "periph/rtc.h"
 
-// 1972 and 1976 have 366 days (DELTA_EPOCH_GPS is 315532800 seconds)
+// 1972 and 1976 have 366 days (DELTA_EPOCH_GPS is 315964800 seconds)
 // GPS Epoch consists of a count of weeks and seconds of the week since 0 hours (midnight) Sunday 6 January 1980
 #define DELTA_EPOCH_GPS ((365*8 + 366*2 + 5)*(24*60*60))
 
