@@ -52,7 +52,7 @@ minicom -s
 
 The AppKey can be recovered from the DevEUI (displayed at startup) and the SECRET (flashed into the firmware) with the command lines below:
 
-```bash
+```
 SECRET=cafebabe02000001cafebabe02ffffff                                         
 DevEUI=33323431007f1234                                                         
 AppEUI=33323431ffffffff                                                        
@@ -88,7 +88,7 @@ mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicat
 ```
 
 The output on the console is:
-```bash
+```
 main(): This is RIOT! (Version: 2020.04-devel-1660-gb535c)
 Secret:cafebabe02000001cafebabe02ffffff                                         
 DevEUI:33323431007f1234                                                         
@@ -113,14 +113,38 @@ mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicat
 > The epoch is a unsigned 16 bit-long integer (big endian)
 
 The output on the console is:
-```bash
+```
 ...
 Sending LPP payload with : T: 22.75                                
 Data received: tx_period=60, port: 3                                            
 Received ACK from network                                                       
 ```
 
-### Setting the realtime clock of the endpoint
+### synchronizing the realtime clock (RTC) of the endpoint
+
+Chiprstack implements FUOTA which includes the Clock Sync [https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100]
+https://www.chirpstack.io/application-server/use/fuota/
+
+
+```
+...
+[clock] Current RTC time :   2020-05-24 15:03:09                                
+[clock] Last correction  : never                                                
+[clock] app_clock_send_app_time_req                                             
+[clock] Current time:   2020-05-24 15:03:09                                     
+[clock] app_clock_process_downlink                                              
+[clock] APP_CLOCK_CID_AppTimeAns                                                
+[clock] Current time    :   2020-05-24 15:03:10                                 
+[clock] Time Correction : 1                                                     
+[clock] RTC time fixed  :   2020-05-24 15:03:11                                 
+[clock] sent_buffer:                                                            
+[clock] app_clock_send_buffer                                                   
+[clock] Current RTC time :   2020-05-24 15:03:11                                
+[clock] Last correction  :   2020-05-24 15:03:11                                
+...
+```
+
+### Setting the realtime clock (RTC) of the endpoint
 ```bash
 PORT=202
 PAYLOAD=FE0BF6FB4B
@@ -130,7 +154,7 @@ mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicat
 > The time is the number of seconds since 01/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
 
 The output on the console is:
-```bash
+```
 ...
 Received ACK from network                                                                                 
 Current RTC time :   2020-05-24 15:03:09                                                                  
@@ -142,6 +166,7 @@ Current time    :   2020-05-24 15:03:44
 RTC time fixed  :   2020-05-24 16:08:43                                                                   
 sent_buffer:                                                                                              
 ```
+
 
 
 ## References
@@ -171,7 +196,6 @@ Connector X2
 
 ## TODO
 * Multiple data (temperature) per Tx (configure TX Period and Sample into the same downlink message)
-* Clock Sync https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100
 * Add [DS1307 RTC Clock](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf) [driver](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds1307)
 * Add [DS3234 Extremely Accurate SPI Bus RTC with Integrated Crystal and SRAM](https://datasheets.maximintegrated.com/en/ds/DS3234.pdf)
 * Add [DS18B20 1-Wire temperature stainless probe](https://github.com/RIOT-OS/RIOT/blob/master/tests/driver_ds18)
