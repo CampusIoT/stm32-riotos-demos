@@ -174,3 +174,5 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [OneWire readers and iButtons](https://www.maximintegrated.com/en/products/ibutton/ibuttons/blue_dot.cfm) | TBC | 5V | 1Wire | TBC | TBC | TBC | TBC |
 | [Melexis Contact-less Infrared Sensor - MLX90614](https://www.melexis.com/en/product/mlx90614/digital-plug-play-infrared-thermometer-to-can) | TBC | 3V and 5V version | PWM output ? | Temperature | TBC | TBC | TBC |
 | [Omron Vibration Sensors D7S (High-precision Seismic Sensor)](https://omronfs.omron.com/en_US/ecb/products/pdf/en-d7s.pdf) | TBC | TBC | TBC| Vibration | TBC | TBC | [TBC](https://www.14core.com/wiring-d7s-seismic-earthquake-detection-mapping-intensity-vibration-sensor-on-microcontroller/) |
+| [STEVAL-MKI031V1](https://github.com/CampusIoT/tutorial/tree/master/musa) | TBC | TBC | TBC| ST7 + Accelerometer [LIS331DLH](https://www.st.com/en/mems-and-sensors/lis331dlh.html) | TBC | TBC | TBC |
+
