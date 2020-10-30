@@ -109,6 +109,7 @@ Available in fabMSTIC
 | X-NUCLEO-53L1A1 | 2 | TBC | Ranging, TOF | TBC | TBC |
 | [X-NUCLEO-IDW01M1](https://www.st.com/en/ecosystems/x-nucleo-idw01m1.html) | 4 | Wifi | TBC | RiotOS: TBD, [Stm32duino: Yes](https://github.com/stm32duino/X-NUCLEO-53L0A1) | TBC |
 | [X-NUCLEO-AMICAM1](https://www.st.com/content/st_com/en/products/ecosystems/stm32-open-development-environment/stm32-nucleo-expansion-boards/stm32-ode-sense-hw/x-nucleo-amicam1.html) | ~5 | None | Microphone | RiotOS: TBD, Stm32duino: TBD | TBC |
+| [X-NUCLEO-CCA02M2](https://www.st.com/en/ecosystems/x-nucleo-cca02m2.html) | 5 | None | Microphone x2 [MP34DT06J](https://www.st.com/content/st_com/en/products/mems-and-sensors/mems-microphones/mp34dt06j.html) | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IHM07M1](https://www.st.com/en/ecosystems/x-nucleo-ihm07m1.html) | 0 | None | Brushless Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IHM03A1](https://www.st.com/en/ecosystems/x-nucleo-ihm03a1.html) | TBC | None | High Power Stepper Motor Driver | RiotOS: TBD, Stm32duino: TBD | TBC |
 | [X-NUCLEO-IHM01A1](https://www.st.com/en/ecosystems/x-nucleo-ihm01a1.html) | 7 | None | Stepper motor driver ([L6474](https://www.st.com/content/st_com/en/products/motor-drivers/stepper-motor-drivers/l6474.html)) | RiotOS: TBD, Stm32duino: TBD | TBC |
