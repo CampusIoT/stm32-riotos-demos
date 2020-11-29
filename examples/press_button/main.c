@@ -21,7 +21,11 @@ int main(void)
 	gpio_init(LED0_PIN, GPIO_OUT);
 
 	/* initialize on-board user button */
+#ifdef BTN_B1_PIN
+	gpio_init_int(BTN_B1_PIN, GPIO_IN, GPIO_FALLING, gpio_falling, NULL);
+#else
 	gpio_init_int(BTN0_PIN, GPIO_IN, GPIO_FALLING, gpio_falling, NULL);
+#endif
 
 	printf("Press button 0\n");
 }
