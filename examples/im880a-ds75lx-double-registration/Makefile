@@ -13,8 +13,6 @@ USEMODULE += xtimer
 USEMODULE += ds75lx
 USEMODULE += $(DRIVER)
 
-USEPKG += cayenne-lpp
-
 USEPKG += semtech-loramac
 USEMODULE += semtech_loramac_rx
 
@@ -28,6 +26,8 @@ APPKEY ?= cafebabe02000001cafebabe02ffffff
 FEATURES_REQUIRED += periph_rtc
 
 USEMODULE += hashes
+
+USEPKG += cayenne-lpp
 
 DEVELHELP ?= 1
 

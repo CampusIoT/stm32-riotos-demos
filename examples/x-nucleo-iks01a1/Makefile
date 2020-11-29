@@ -2,7 +2,7 @@ APPLICATION = x-nucleo-iks01a1-demo
 
 BOARD ?= nucleo-f411re
 
-RIOTBASE ?= $(CURDIR)/../RIOT/
+RIOTBASE ?= $(RIOT_BASE)
 
 DEVELHELP ?= 1
 

@@ -1,13 +1,17 @@
-APPLICATION = example
+APPLICATION = saul_list_all
 
 BOARD ?= native
 
-RIOTBASE ?= $(CURDIR)/../RIOT/
+RIOTBASE ?= $(RIOT_BASE)
 
 DEVELHELP ?= 1
 
-USEMODULE += saul saul_default lsm6dso
+USEMODULE += saul saul_default
+# USEMODULE += lsm6dso
 
-CFLAGS += -DAUTO_INIT_LED0 -DAUTO_INIT_LSM6DSO
+CFLAGS += -DAUTO_INIT_LED0
+# CFLAGS += -DAUTO_INIT_LSM6DSO
+
+RIOTBASE ?= $(RIOT_BASE)
 
 include $(RIOTBASE)/Makefile.include

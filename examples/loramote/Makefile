@@ -1,4 +1,4 @@
-APPLICATION=lorawan-ds75lx
+APPLICATION=lorawan-loramote
 
 BOARD ?= im880b
 
@@ -10,10 +10,10 @@ REGION ?= EU868
 
 USEMODULE += fmt
 USEMODULE += xtimer
-USEMODULE += ds75lx
+USEMODULE += mma8x5x
+USEMODULE += mpl3115a2
+USEMODULE += mag3110
 USEMODULE += $(DRIVER)
-
-USEPKG += cayenne-lpp
 
 USEPKG += semtech-loramac
 USEMODULE += semtech_loramac_rx
@@ -28,6 +28,8 @@ APPKEY ?= cafebabe02000001cafebabe02ffffff
 FEATURES_REQUIRED += periph_rtc
 
 USEMODULE += hashes
+
+USEPKG += cayenne-lpp
 
 DEVELHELP ?= 1
 

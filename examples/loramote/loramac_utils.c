@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Didier Donsez
+ * Copyright (C) 2020 INRIA
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -17,6 +17,7 @@
  *
  * @}
  */
+#include <stddef.h>
 
 #define ENABLE_DEBUG (1)
 #include "debug.h"
@@ -27,7 +28,6 @@
 #include "semtech_loramac.h"
 
 #include <string.h>
-
 #include "cpu_conf.h"
 #include "periph/cpuid.h"
 
@@ -35,7 +35,7 @@
 
 // TODO print_loramac(semtech_loramac_t *loramac)
 
-char *loramac_utils_err_message(uint8_t errCode)
+char *semtech_loramac_err_message(uint8_t errCode)
 {
     switch (errCode)
     {
@@ -75,7 +75,7 @@ char *loramac_utils_err_message(uint8_t errCode)
 /**
  * start the OTAA join procedure (and retries if required)
  */
-uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate, uint32_t nextRetryTime, uint32_t maxNextRetryTime)
+uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate, uint32_t nextRetryTime, uint32_t maxNextRetryTime)
 {
     // TODO print DevEUI, AppEUI, AppKey
 
@@ -86,7 +86,7 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
     uint8_t joinRes;
     while ((joinRes = semtech_loramac_join(loramac, LORAMAC_JOIN_OTAA)) != SEMTECH_LORAMAC_JOIN_SUCCEEDED)
     {
-        DEBUG("Join procedure failed: code=%d (%s)\n", joinRes, loramac_utils_err_message(joinRes));
+        DEBUG("Join procedure failed: code=%d (%s)\n", joinRes, semtech_loramac_err_message(joinRes));
 
         if (initDataRate > 0)
         {
@@ -119,7 +119,6 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
 static const uint8_t appeui_mask[LORAMAC_APPEUI_LEN/2] = { 0xff, 0xff, 0xff, 0xff };
 
 void printf_ba(const uint8_t* ba, size_t len) {
-	// TODO replace by fmt.h functions
     for (unsigned int i = 0; i < len; i++) {
         DEBUG("%02x", ba[i]);
     }
@@ -128,7 +127,7 @@ void printf_ba(const uint8_t* ba, size_t len) {
 /**
  * Forge the DevEUI, AppEUI and the AppKey from the CPU ID of the MCU and a secret array of bytes
  */
-void loramac_utils_forge_euis_and_key(uint8_t *deveui, uint8_t *appeui, uint8_t *appkey, const uint8_t* secret)
+void loramac_forge_deveui(uint8_t *deveui, uint8_t *appeui, uint8_t *appkey, const uint8_t* secret)
 {
     uint8_t id[CPUID_LEN];
     /* read the CPUID */

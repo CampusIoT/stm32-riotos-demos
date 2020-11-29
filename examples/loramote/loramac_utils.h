@@ -28,11 +28,11 @@ extern "C"
 {
 #endif
 
-    char *loramac_utils_err_message(uint8_t errCode);
+    char *semtech_loramac_err_message(uint8_t errCode);
 
-    uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate, uint32_t nextRetryTime, uint32_t maxNextRetryTime);
+    uint8_t loramac_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate, uint32_t nextRetryTime, uint32_t maxNextRetryTime);
 
-    void loramac_utils_forge_euis_and_key(uint8_t *deveui, uint8_t *appeui, uint8_t *appkey, const uint8_t* secret);
+    void loramac_forge_deveui(uint8_t *deveui, uint8_t *appeui, uint8_t *appkey, const uint8_t* secret);
 
     void printf_ba(const uint8_t* ba, size_t len);
 

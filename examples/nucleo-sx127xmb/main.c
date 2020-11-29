@@ -166,9 +166,13 @@ int main(void)
 	// gpio_init(LED0_PIN, GPIO_OUT); LoRaMac TXs fail if this GPIO is init
 
 	/* initialize on-board user button */
+#ifdef BTN_B1_PIN
+	gpio_init_int(BTN_B1_PIN, GPIO_IN, GPIO_FALLING, gpio_falling, NULL);
+#else
 	gpio_init_int(BTN0_PIN, GPIO_IN, GPIO_FALLING, gpio_falling, NULL);
+#endif
 
-	printf("Press button 0\n");
+	printf("Press User Button\n");
 
     /* sleep FIRST_TX_PERIOD secs */
     xtimer_sleep(FIRST_TX_PERIOD);
