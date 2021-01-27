@@ -19,8 +19,8 @@ Available in fabMSTIC
 |    | [32F429IDISCOVERY](https://www.st.com/en/evaluation-tools/32f429idiscovery.html) | 0 | [STM32F429](https://www.st.com/en/microcontrollers-microprocessors/stm32f429-439.html) | TBD | 2.4" QVGA TFT LCD, L3GD20, ST-MEMS motion sensor 3-axis digital output gyroscope,  | Riot OS: [Yes](https://github.com/RIOT-OS/RIOT/tree/master/boards/stm32f429i-disc1) | TBC |
 |    | [P-L496G-CELL01](https://www.st.com/en/evaluation-tools/p-l496g-cell02.html) | TBC | TBC | TBD | TBC  | TBC | TBC |
 |    | [STM32F7308-DK](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/stm32f7308-dk.html) | 15 | [STM32F730I8K6](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f7-series/stm32f7x0-value-line/stm32f730i8.html) | TBD | TBC  | TBC | TBC |
-|    | [STM32F779I-EVAL](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-eval-boards/stm32f769i-eval.html) | 8 | TBC | TBD | TBC  | TBC | TBC |
-|    | [STM32H747I-EVAL](https://www.st.com/en/evaluation-tools/stm32h757i-eval.html) | 15 | TBC | TBD | TBC  | TBC | TBC |
+| <img alt="stm32f769i-eval" src="images/stm32f769i-eval.jpg"> | [STM32F779I-EVAL](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-eval-boards/stm32f769i-eval.html) | 8 | TBC | Ethernet | Touch screen  | TBC | TBC |
+| <img alt="stm32h757i-eval" src="images/stm32h757i-eval.jpg"> | [STM32H747I-EVAL](https://www.st.com/en/evaluation-tools/stm32h757i-eval.html) | 15 | TBC | Ethernet | Touch screen  | TBC | TBC |
 |    | STM32 F100RB | 1 | TBC | TBD | TBC  | TBC | TBC |
 |    | STM32 F401 | 2 | TBC | TBD | TBC  | TBC | TBC |
 |    | STM32 F404 | 21 | TBC | TBD | TBC  | TBC | TBC |
