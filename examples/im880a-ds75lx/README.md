@@ -33,12 +33,15 @@ Register the endpoint into a LoRaWAN network (public or private) using the DevEU
 Build the firmware
 ```bash
 export RIOT_BASE=~/github/RIOT-OS/RIOT
+(cd $RIOT_BASE; git checkout 6bf6b6be6c4723b49f62550a35111e57b7426aa4) 
 make binfile
+```
+
 ```
 Connect the board to the STLink according this [tutorial](https://github.com/CampusIoT/tutorial/tree/master/im880a) and then flash the firmware
 ```bash
 export RIOT_BASE=~/github/RIOT-OS/RIOT
-make flash
+make flash-only
 ```
 ## Console
 Connect the board TX pin to USBSerial port and then configure and start `minicom`.
