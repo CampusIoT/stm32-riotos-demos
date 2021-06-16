@@ -165,6 +165,9 @@ Note: [SparkFun's Qwiic Connect System](https://www.sparkfun.com/qwiic) uses 4-p
 | [Infrared Temperature Sensor Array (AMG8833)](http://wiki.seeedstudio.com/Grove-Infrared_Temperature_Sensor_Array-AMG8833/) |  TBC | 3.3V | AMG8833 IR grid | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 | [OBD-II CAN-BUS Development Kit](https://docs.longan-labs.cc/1030002/) |  TBC | 5V | CAN Bus | RiotOS: TBD, Stm32duino: TBD | TBD | TBD |
 
+## Seeed Studio Grove Zero sensors
+
+
 ## Misc
 
 | Board         | Samples @ Fablab | Voltage   | Interfaces | Sensors       | OS support | Fritzing     | Demo     |
