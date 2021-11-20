@@ -27,7 +27,7 @@ Available in fabMSTIC
 |    | STM32 F746 | 1 | TBC | TBD | TBC  | TBC | TBC |
 |    | [STEVAL-BCN002V1B BlueTile - Bluetooth LE enabled sensor node development kit](https://www.st.com/en/evaluation-tools/steval-bcn002v1b.html) | 1 | TBC | BE (BlueNRG-2) | LSM6DSO, LIS2MDL, VL53L1X, MP34DT05TR-A, LPS22HH, HTS221  | TBC | TBC |
 |    | [B-U585I-IOT02A Discovery kit for IoT node with STM32U5](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | 1 | TBC | TBD | TBC  | TBC | TBC |
-
+|    | [32F746GDISCOVERY  Discovery kit with STM32F746NG MCU](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | 0 | TBC | TBD | TBC  | TBC | TBC |
 
 [Full product selector](https://www.st.com/en/evaluation-tools/stm32-discovery-kits.html#products).
 
